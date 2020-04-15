@@ -2,6 +2,7 @@ package com.example.hotelmanagesys.modules.client.room.service;
 
 import com.example.hotelmanagesys.modules.client.room.entity.ClientRoomReservation;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author lxq
  * @since 2020-04-15
  */
+@Service
 public interface IClientRoomReservationService extends IService<ClientRoomReservation> {
 
 }

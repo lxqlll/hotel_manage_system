@@ -2,6 +2,8 @@ package com.example.hotelmanagesys.modules.client.room.mapper;
 
 import com.example.hotelmanagesys.modules.client.room.entity.ClientRoomReservation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +13,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author lxq
  * @since 2020-04-15
  */
+@Mapper
+@Repository
 public interface ClientRoomReservationMapper extends BaseMapper<ClientRoomReservation> {
 
 }

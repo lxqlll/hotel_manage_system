@@ -17,4 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/room/client-room-reservation")
 public class ClientRoomReservationController {
 
+
+    public void x(){
+
+    }
+
 }
