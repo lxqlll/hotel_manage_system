@@ -1,5 +1,3 @@
-var baseURL = "http://localhost:8080/hotel"
-var baseWebURL = "http://localhost:8080/hotel"
 $('#clientRegister').click(function(){
     var logonInfo = {}
     logonInfo.clientName = $('#clientName').val()

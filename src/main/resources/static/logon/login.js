@@ -17,14 +17,12 @@ $('#clientLogin').click(function () {
                     //设置失效时间
                     var exp = new Date();
                     exp.setTime(exp.getTime() + 60 * 1000 * 15);
+                    alert(obj.data.phone)
+                    alert(obj.data.clientName)
                     //添加cookie
                     document.cookie = "phone=" + escape(obj.data.phone) + ";expires=" + exp.toGMTString();
-
-                    document.cookie = "userName=" + escape(obj.data.clientName) + ";expires=" + exp.toGMTString();
-
-                    window.location.href=baseWebURL+"/modules/index.html#";
-
-
+                    document.cookie = "userName=" +  unescape(obj.data.clientName) + ";expires=" + exp.toGMTString();
+                    window.location.href=baseWebURL+"/modules/login/login.html#";
                 }else{
                     alert("账号或者密码,请重新登录!");
                 }

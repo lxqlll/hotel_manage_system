@@ -1,6 +1,3 @@
-
-
-
 $(function(){
     $.ajax({
         sync: false,
@@ -10,7 +7,6 @@ $(function(){
         contentType: 'application/json',
         /*data: JSON.stringify(inforMation),*/
         success: function (obj) {
-
             if (obj.code==200) {
                 let data = obj.data
                 for (let i = 0; i < data.length; i++) {
@@ -55,9 +51,7 @@ $('#show').on('click','.bookNow',function(){
     //设置失效时间
     var exp = new Date();
     exp.setTime(exp.getTime() + 60 * 1000 * 15);
-
     document.cookie = "guestRoomName=" + escape(name) + ";expires=" + exp.toGMTString();
-
     window.location.href=baseWebURL+"/modules/front/book.html#";
 })
 
