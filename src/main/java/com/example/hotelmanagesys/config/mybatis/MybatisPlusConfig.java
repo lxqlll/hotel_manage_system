@@ -1,4 +1,4 @@
-package com.example.hotelmanagesys.config;
+package com.example.hotelmanagesys.config.mybatis;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.springframework.context.annotation.Bean;

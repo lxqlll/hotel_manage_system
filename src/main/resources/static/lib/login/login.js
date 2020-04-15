@@ -17,12 +17,8 @@ $('#clientLogin').click(function () {
                     exp.setTime(exp.getTime() + 60 * 1000 * 15);
                     //添加cookie
                     document.cookie = "phone=" + escape(obj.data.phone) + ";expires=" + exp.toGMTString();
-
                     document.cookie = "userName=" + escape(obj.data.clientName) + ";expires=" + exp.toGMTString();
-
-                    window.location.href=baseWebURL+"/modules/front/index.html#";
-
-
+                    window.location.href=baseWebURL+"/modules/front/index.html";
                 }else{
                     alert("账号或者密码,请重新登录!");
                 }
