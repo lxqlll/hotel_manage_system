@@ -48,8 +48,4 @@ public class AdminInfoController {
             return Response.ok(info);
         }
     }
-
-
-
-
 }
