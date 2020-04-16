@@ -5,15 +5,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.hotelmanagesys.modules.client.guest.entity.ClientGuestRoom;
 import com.example.hotelmanagesys.modules.client.guest.service.IClientGuestRoomService;
+import com.example.hotelmanagesys.modules.client.room.entity.ClientRoomReservation;
 import com.example.hotelmanagesys.result.Response;
 import com.example.hotelmanagesys.result.Result;
 import com.example.hotelmanagesys.result.ResultEnum;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -93,7 +90,9 @@ public class ClientGuestRoomController {
      */
     @RequestMapping("/updateRoom")
     public Result updateRoom(@RequestBody ClientGuestRoom clientGuestRoom){
+
         boolean flag = iClientGuestRoomService.updateById(clientGuestRoom);
+        
         if(flag==true){
             return Response.ok("客房修改成功");
         }else{
@@ -103,16 +102,18 @@ public class ClientGuestRoomController {
 
     /**
      * 根据客房名字查询
-     * @param clientGuestRoom
+     * @param guestRoomNames
      * @return
      */
-    @RequestMapping("/queryGuestRoomName")
-    public Result queryGuestRoomName(@RequestBody ClientGuestRoom clientGuestRoom){
+    @RequestMapping("/queryGuestRoomName/{guestRoomNames}")
+    public Result queryGuestRoomName(@PathVariable String guestRoomNames){
         QueryWrapper queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("guestRoomName",clientGuestRoom.getGuestRoomName());
-        ClientGuestRoom client = iClientGuestRoomService.getOne(queryWrapper);
-        if(client!=null){
-            return Response.ok("条件查询成功");
+        queryWrapper.like("guestRoomName",guestRoomNames);
+        queryWrapper.eq("guestRoomStatus","未入住");
+        List<ClientRoomReservation> clientRoomReservations
+                = iClientGuestRoomService.list(queryWrapper);
+        if(clientRoomReservations!=null && clientRoomReservations.size()>0){
+            return Response.ok(clientRoomReservations);
         }else{
             return Response.error(ResultEnum.INTERNAL_SERVER_ERROR);
         }

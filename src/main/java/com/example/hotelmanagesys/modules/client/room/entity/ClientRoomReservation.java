@@ -6,9 +6,13 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -52,13 +56,15 @@ public class ClientRoomReservation implements Serializable {
      * 入住日期
      */
     @TableField("targetDate")
-    private LocalDateTime targetDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date targetDate;
 
     /**
      * 退房日期
      */
     @TableField("checkOutDate")
-    private LocalDateTime checkOutDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date checkOutDate;
 
     /**
      * 客人人数
@@ -68,14 +74,78 @@ public class ClientRoomReservation implements Serializable {
     /**
      * 订单生成日期
      */
+
     @TableField("orderDate")
-    private LocalDateTime orderDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date orderDate;
 
     /**
      * 预定房间号
      */
     @TableField("roomNumber")
     private Integer roomNumber;
+    /**
+     *
+     */
+    private String mail;
+    /**
+     *
+     */
+    private String remark;
+    /**
+     *
+     */
+    @TableField(exist = false)
+    private String guestRoomName;
+
+
+    public String getGuestRoomName() {
+        return guestRoomName;
+    }
+
+    public void setGuestRoomName(String guestRoomName) {
+        this.guestRoomName = guestRoomName;
+    }
+
+    public Date getTargetDate() {
+        return targetDate;
+    }
+
+    public void setTargetDate(Date targetDate) {
+        this.targetDate = targetDate;
+    }
+
+    public Date getCheckOutDate() {
+        return checkOutDate;
+    }
+
+    public void setCheckOutDate(Date checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -113,21 +183,6 @@ public class ClientRoomReservation implements Serializable {
         this.phone = phone;
     }
 
-    public LocalDateTime getTargetDate() {
-        return targetDate;
-    }
-
-    public void setTargetDate(LocalDateTime targetDate) {
-        this.targetDate = targetDate;
-    }
-
-    public LocalDateTime getCheckOutDate() {
-        return checkOutDate;
-    }
-
-    public void setCheckOutDate(LocalDateTime checkOutDate) {
-        this.checkOutDate = checkOutDate;
-    }
 
     public String getGuest() {
         return guest;
@@ -135,14 +190,6 @@ public class ClientRoomReservation implements Serializable {
 
     public void setGuest(String guest) {
         this.guest = guest;
-    }
-
-    public LocalDateTime getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
     }
 
     public Integer getRoomNumber() {

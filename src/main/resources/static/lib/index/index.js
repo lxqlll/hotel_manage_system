@@ -1,3 +1,18 @@
+
+var guestRoomName = $.cookie('userName');
+if (guestRoomName!=null){
+    $('#personalCenter').append("<li><a href=\"front/personal.html\" class=\"active\">个人中心</a></li>")
+    $('#personalCenter').append("<li><a id='outIn' class=\"active\">退出登录</a></li>")
+}else{
+    $('#personalCenter').append("<li><a href=\"login/login.html\" class=\"active\">登录</a></li>")
+}
+
+$('#outIn').click(function(){
+    $.cookie('name',null,{ path: 'phone'});
+    $.cookie('name',null,{ path: 'clientName'});
+ alert(1)
+})
+
 $(function(){
     $.ajax({
         sync: false,

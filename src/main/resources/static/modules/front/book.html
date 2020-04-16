@@ -60,7 +60,7 @@
 									<label for="drop-2" class="toggle toogle-2">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
 									</label>
 									<a href="#">选择<span class="fa fa-angle-down" aria-hidden="true"></span></a>
-									<input type="checkbox" id="drop-2" />
+									form-control			<input type="checkbox" id="drop-2" />
 									<ul>
 										<li><a href="#services" class="drop-text">服务</a></li>
 										<li><a href="#blog" class="drop-text">博客</a></li>
@@ -112,14 +112,14 @@
 						<div class="row">
 							<div class="col-lg-6 form-group">
 								<label>姓名</label>
-								<input class="form-control" type="text" name="Name" placeholder="Type Here.." required="">
+								<input class="form-control" type="text" id="reserveName" name="Name" placeholder="Type Here.." required="">
 							</div>
 							<div class="col-lg-6 form-group">
 								<label>您的性别</label>
-								<select required="" class="form-control">
+								<select id="sex" required="" class="form-control">
 									<option value="">请选择</option>
-									<option value="1">男</option>
-									<option value="2">女</option>
+									<option value="男">男</option>
+									<option value="女">女</option>
 								</select>
 							</div>
 							<!--<div class="col-lg-6 form-group">
@@ -128,40 +128,37 @@
 							</div>-->
 						</div>
 						<div class="row">
-							<div class="col-lg-6 form-group">
+							<div  class="col-lg-6 form-group">
 								<label>电子邮件</label>
-								<input class="form-control" type="email" name="Email" placeholder="Email" required="">
+								<input id="mail"  class="form-control" type="email" name="Email" placeholder="Email" required="">
 							</div>
 							<div class="col-lg-6 form-group">
 								<label>电话号码</label>
-								<input class="form-control" type="text" name="number" placeholder="Phone Number" required="">
+								<input id="phone" class="form-control" type="text" name="number" placeholder="Phone Number" required="">
 							</div>
 
 						</div>
 						<div class="row">
 							<div class="col-lg-6 form-group date-plu">
 								<label>住房日期</label>
-								<input type="date" name="date" required="">
+								<input id="targetDate" type="date" name="date" required="">
 							</div>
 							<div class="col-lg-6 form-group date-plu">
 								<label>退房日期</label>
-								<input type="date" name="date" required="">
+								<input id="checkOutDate" type="date" name="date" required="">
 							</div>
 
 						</div>
 						<div class="row">
-							<div class="col-lg-6 form-group">
+							<div id="noSelect" class="col-lg-6 form-group">
 								<label>选择您的房间</label>
-								<select required="" class="form-control">
-									<option value="">请选择</option>
-									<option value="1"></option>
-									<option value="2"></option>
-									<option value="4"></option>
+								<select  required="" id="getRoom" class="form-control">
+
 								</select>
 							</div>
 							<div class="col-lg-6 form-group">
 								<label>没有客人</label>
-								<select required="" class="form-control">
+								<select id="guest" required="" class="form-control">
 									<option value="">来宾人数</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -175,9 +172,9 @@
 						</div>
 						<div class="form-group">
 							<label>备注信息</label>
-							<textarea class="form-control" name="Message" placeholder="Write Here.." required=""></textarea>
+							<textarea id="remark" class="form-control" name="Message" placeholder="Write Here.." required=""></textarea>
 						</div>
-						<button type="submit" class="btn submit mt-3">现在预订</button>
+						<button type="button" id="reserve" class="btn submit mt-3">现在预订</button>
 					</form>
 				</div>
 			</div>
@@ -270,6 +267,9 @@
 			</div>
 		</div>
 	</footer>
+	<script src="../../layui/layui.js"></script>
+	<script src="../../layui/layui.all.js"></script>
+	<script src="../../layui/lay/modules/layer.js"></script>
 	<script src="../../js/jquery.js"> </script>
 	<script src="../../js/jquery.cookie.js"> </script>
 	<script src="../../lib/commom.js"> </script>
