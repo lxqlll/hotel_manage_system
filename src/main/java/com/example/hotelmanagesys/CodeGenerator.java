@@ -62,7 +62,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.example.hotelmanagesys.modules.client");
+        pc.setParent("com.example.hotelmanagesys.modules.admin");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
