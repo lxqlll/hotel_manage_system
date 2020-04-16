@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hotelmanagesys.modules.admin.permission.mapper.AdminPermissionMapper">
+
+    <select id="getPermission" parameterType="string" resultType="com.example.hotelmanagesys.modules.admin.permission.entity.AdminPermission">
+       select
+            e.*
+        from
+            admin_info a
+        inner join
+            admin_role b
+        inner join
+            Role c
+        inner join
+            role_permission d
+        inner join
+            admin_permission e
+            on
+                (a.id=b.userid
+            and
+                b.roleId = c.roleid
+            and
+                c.roleid = d.roleId
+            and
+                d.perid = e.perid) where a.name = #{userName}
+    </select>
+</mapper>
