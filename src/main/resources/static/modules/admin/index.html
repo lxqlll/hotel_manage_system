@@ -11,11 +11,13 @@
         <link rel="stylesheet" href="./css/xadmin.css">
         <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
         <script src="./lib/layui/layui.js" charset="utf-8"></script>
+        <script src="../../js/jquery.js" charset="utf-8"></script>
         <script type="text/javascript" src="./js/xadmin.js"></script>
         <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
         <!--[if lt IE 9]>
           <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
           <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+
         <![endif]-->
         <script>
             // 是否开启刷新记忆tab功能
@@ -75,7 +77,42 @@
         <!-- 左侧菜单开始 -->
         <div class="left-nav">
             <div id="side-nav">
-
+                <ul id="nav">
+                   <!-- <li>
+                        <a href="javascript:;">
+                            <i class="iconfont left-nav-li" lay-tips="会员管理">&#xe6b8;</i>
+                            <cite>会员管理1</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a onclick="xadmin.add_tab('统计页面','welcome1.html')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>统计页面</cite></a>
+                            </li>
+                            <li>
+                                <a onclick="xadmin.add_tab('会员列表(静态表格)','member-list.html')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>会员列表(静态表格)</cite></a>
+                            </li>
+                            <li>
+                                <a onclick="xadmin.add_tab('会员列表(动态表格)','member-list1.html',true)">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>会员列表(动态表格)</cite></a>
+                            </li>
+                            <li>
+                                <a onclick="xadmin.add_tab('会员删除','member-del.html')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>会员删除</cite></a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="iconfont">&#xe70b;</i>
+                                    <cite>会员管理</cite>
+                                    <i class="iconfont nav_right">&#xe697;</i></a>
+                            </li>
+                        </ul>
+                    </li>-->
+                </ul>
             </div>
         </div>
         <!-- <div class="x-slide_left"></div> -->
@@ -112,5 +149,6 @@
                 s.parentNode.insertBefore(hm, s);
             })();</script>
     </body>
-
+<!--    <script src="../../lib/commom.js" charset="utf-8"></script> -->
+    <!--<script src="../../lib/admin/index/index.js" charset="utf-8"></script>-->
 </html>

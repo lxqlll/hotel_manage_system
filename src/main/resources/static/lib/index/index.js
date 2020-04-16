@@ -51,7 +51,7 @@ $('#show').on('click','.bookNow',function(){
     //设置失效时间
     var exp = new Date();
     exp.setTime(exp.getTime() + 60 * 1000 * 15);
-    document.cookie = "guestRoomName=" + escape(name) + ";expires=" + exp.toGMTString();
+    document.cookie = "guestRoomName=" + unescape(name) + ";expires=" + exp.toGMTString();
     window.location.href=baseWebURL+"/modules/front/book.html#";
 })
 

@@ -1,12 +1,10 @@
 $('#login').click(function () {
-
-    alert(1);
     var adminInfo = {}
     adminInfo.name=$('#username').val()
     adminInfo.password=$('#password').val()
     if($('#username').val().length!=0 && $('#password').val().length!=0){
         $.ajax({
-            sync: false,
+            sync: true,
             type: "post",
             url: baseURL + "/admin/info/adminLogin",
             dataType: 'json',

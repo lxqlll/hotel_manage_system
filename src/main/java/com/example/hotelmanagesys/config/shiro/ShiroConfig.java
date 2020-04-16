@@ -33,18 +33,18 @@ public class ShiroConfig {
 //        filterMap.put("/book/getBook","perms[user:export]");
         //需要登录
 //        filterMap.put("/modules/front/personal.html","authc");
-//
+////
 //        filterMap.put("/modules/front/book.html","authc");
-//        //设置拦截路径
+////        //设置拦截路径
 //        bean.setFilterChainDefinitionMap(filterMap);
-//        //设置登录路径
+//        bean.setFilterChainDefinitions("/ajaxLogin");
+////        //设置登录路径
 //        bean.setLoginUrl("/modules/login/login.html");
 //        //设置未授权路径
 //        bean.setUnauthorizedUrl("/book/getBook");
 
         //设置安全管理器
         bean.setSecurityManager(defaultWebSecurityManager);
-
         return bean;
     }
 

@@ -23,21 +23,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/room")
 public class ClientRoomReservationController {
+
     @Autowired
     private IClientRoomReservationService iClientRoomReservationService;
 
     /**
      * 预定订单
-     * @param clientRoomReservation
+     * @param
      * @return
      */
-    @GetMapping("/queryRoomReservation")
-    public Result queryRoomReservation(@RequestBody ClientRoomReservation clientRoomReservation){
+    @PostMapping("/queryReservation/{guestRoomName2}")
+    public Result queryRoomReservation(@PathVariable String guestRoomName2 ){
         QueryWrapper queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("reserveName",clientRoomReservation.getReserveName());
-        ClientRoomReservation client = iClientRoomReservationService.getOne(queryWrapper);
-        if(client!=null){
-            return Response.ok("订单查询成功");
+        queryWrapper.like("reserveName",guestRoomName2);
+        List<ClientRoomReservation> clientRoomReservations = iClientRoomReservationService.list(queryWrapper);
+        if(clientRoomReservations!=null && clientRoomReservations.size()>0){
+            return Response.ok(clientRoomReservations);
         }else{
             return Response.error(ResultEnum.INTERNAL_SERVER_ERROR);
         }

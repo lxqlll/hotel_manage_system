@@ -4,7 +4,7 @@ $('#clientLogin').click(function () {
     inforMation.password=$('#password').val()
     if($('#username').val().length!=0 && $('#password').val().length!=0){
         $.ajax({
-            sync: false,
+            sync: true,
             type: "post",
             url: baseURL + "/client/infor/clientLogin",
             dataType: 'json',
@@ -16,9 +16,9 @@ $('#clientLogin').click(function () {
                     var exp = new Date();
                     exp.setTime(exp.getTime() + 60 * 1000 * 15);
                     //添加cookie
-                    document.cookie = "phone=" + escape(obj.data.phone) + ";expires=" + exp.toGMTString();
-                    document.cookie = "userName=" + escape(obj.data.clientName) + ";expires=" + exp.toGMTString();
-                    window.location.href=baseWebURL+"/modules/front/index.html";
+                     document.cookie = "phone=" + unescape(obj.data.phone) + ";expires=" + exp.toGMTString();
+                     document.cookie = "userName=" + unescape(obj.data.clientName) + ";expires=" + exp.toGMTString();
+                    window.location.href=baseWebURL+"/modules/index.html";
                 }else{
                     alert("账号或者密码,请重新登录!");
                 }
