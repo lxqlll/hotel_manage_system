@@ -35,6 +35,7 @@ public class AdminInfoController {
      */
     @PostMapping(value = "adminLogin")
     public Result adminLogin(@RequestBody AdminInfo adminInfo){
+
         //实例化创建QueryWrapper对象用
         QueryWrapper<AdminInfo> queryWrapper = new QueryWrapper<AdminInfo> ();
         //sql语句追加  例： slect 字段名 from 表名   追加:en==and or == or --------> where and name = #{}

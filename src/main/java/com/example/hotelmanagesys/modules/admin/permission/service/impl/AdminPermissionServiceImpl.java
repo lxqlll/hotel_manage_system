@@ -29,13 +29,14 @@ public class AdminPermissionServiceImpl extends ServiceImpl<AdminPermissionMappe
         return adminPermissionMapper.getPermission(userName);
     }
 
-    @Override
+
     /**
      * 获取子节点
      * @param id 父节点id
      * @param allMenu 所有菜单列表
      * @return 每个根节点下，所有子菜单列表
      */
+    @Override
     public List getChild(int id, List<AdminPermission> allMenu){
         //子菜单
         List<AdminPermission> childList = new ArrayList<AdminPermission>();

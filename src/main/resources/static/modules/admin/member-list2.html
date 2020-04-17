@@ -79,18 +79,16 @@
             table.render({
                 elem: '#demo'
                 ,height: 500
-                ,url: baseURL+'/admin/order/processing' //数据接口
+                ,url: baseURL+'/client/informing/inforprocessing' //数据接口
                 ,page: true //开启分页
                 ,cols: [[ //表头
-                    {field: 'roomReservationId', title: '编号', width:80, sort: true, fixed: 'left'}
-                    ,{field: 'reserveName', title: '预定人', width:100}
-                    ,{field: 'sex', title: '性别', width:100}
+                    {field: 'clientId', title: '客户个人信息编号', width:150, sort: true, fixed: 'left'}
+                    ,{field: 'clientName', title: '预定人', width:150}
                     ,{field: 'phone', title: '电话', width:150}
-                    ,{field: 'targetDate', title: '入住日期', width: 177}
-                    ,{field: 'checkOutDate', title: '退房日期', width: 177}
-                    ,{field: 'guest', title: '客人人数', width: 100, sort: true}
-                    ,{field: 'orderDate', title: '订单生成日期', width: 177}
-                    ,{field: 'roomNumber', title: '预定房间号', width: 135, sort: true}
+                    ,{field: 'email', title: '邮箱', width: 200}
+                    ,{field: 'password', title: '密码', width: 200}
+                    ,{field: null, title: '状态', width: 200}
+                    ,{field: 'null', title: '操作', width: 200}
                 ]]
             });
 
