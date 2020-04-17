@@ -117,7 +117,6 @@ public class ClientGuestRoomController {
         }else{
             return Response.error(ResultEnum.INTERNAL_SERVER_ERROR);
         }
-
     }
 
 

@@ -3,147 +3,37 @@
 <head>
     <meta charset="utf-8">
     <title>树组件</title>
-    <link rel="stylesheet" href="../../css/layui.css">
 </head>
 <body>
-<div id="test1"></div>
-<script src="../../js/layui.js"></script>
+<script src="../../lib/commom.js"></script>
+<script src="../../layui/layui.js"></script>
+<table class="layui-hide" id="demo" lay-filter="test"></table>
+<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
 <script>
-    layui.use('tree', function(){
-        var tree = layui.tree;
+    layui.use('table', function(){
+        var table = layui.table;
 
-        //渲染
-        var inst1 = tree.render({
-            elem: '#test1'  //绑定元素
-            ,data:[
-                {
-                    "perId": 1,
-                    "title": "订单处理",
-                    "percode": null,
-                    "parentId": 0,
-                    "children": [
-                        {
-                            "perId": 6,
-                            "title": "确定订单",
-                            "percode": null,
-                            "parentId": 1,
-                            "children": [
-                                {
-                                    "perId": 8,
-                                    "title": "客户信息登录",
-                                    "percode": null,
-                                    "parentId": 6,
-                                    "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "perId": 7,
-                            "title": "取消订单",
-                            "percode": null,
-                            "parentId": 1,
-                            "children": []
-                        }
-                    ]
-                },
-                {
-                    "perId": 2,
-                    "title": "入住管理",
-                    "percode": null,
-                    "parentId": 0,
-                    "children": [
-                        {
-                            "perId": 9,
-                            "title": "核实客户",
-                            "percode": null,
-                            "parentId": 2,
-                            "children": [
-                                {
-                                    "perId": 11,
-                                    "title": "办理入住",
-                                    "percode": null,
-                                    "parentId": 9,
-                                    "children": []
-                                },
-                                {
-                                    "perId": 12,
-                                    "title": "定价支付",
-                                    "percode": null,
-                                    "parentId": 9,
-                                    "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "perId": 10,
-                            "title": "取消入住",
-                            "percode": null,
-                            "parentId": 2,
-                            "children": []
-                        }
-                    ]
-                },
-                {
-                    "perId": 3,
-                    "title": "退房管理",
-                    "percode": null,
-                    "parentId": 0,
-                    "children": [
-                        {
-                            "perId": 13,
-                            "title": "取消房间入住状况",
-                            "percode": null,
-                            "parentId": 3,
-                            "children": []
-                        },
-                        {
-                            "perId": 14,
-                            "title": "入住结算",
-                            "percode": null,
-                            "parentId": 3,
-                            "children": []
-                        }
-                    ]
-                },
-                {
-                    "perId": 4,
-                    "title": "客房服务",
-                    "percode": null,
-                    "parentId": 0,
-                    "children": [
-                        {
-                            "perId": 15,
-                            "title": "客房服务",
-                            "percode": null,
-                            "parentId": 4,
-                            "children": []
-                        },
-                        {
-                            "perId": 16,
-                            "title": "订餐",
-                            "percode": null,
-                            "parentId": 4,
-                            "children": []
-                        },
-                        {
-                            "perId": 17,
-                            "title": "续租房间",
-                            "percode": null,
-                            "parentId": 4,
-                            "children": []
-                        },
-                        {
-                            "perId": 18,
-                            "title": "客房打扫",
-                            "percode": null,
-                            "parentId": 4,
-                            "children": []
-                        }
-                    ]
-                }
-            ]
+        //第一个实例
+        table.render({
+            elem: '#demo'
+            ,height: 312
+            ,url: baseURL+'/admin/order/processing' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'roomReservationId', title: '编号', width:80, sort: true, fixed: 'left'}
+                ,{field: 'reserveName', title: '预定人', width:80}
+                ,{field: 'sex', title: '性别', width:80, sort: true}
+                ,{field: 'phone', title: '电话', width:80}
+                ,{field: 'targetDate', title: '入住日期', width: 177}
+                ,{field: 'checkOutDate', title: '退房日期', width: 80, sort: true}
+                ,{field: 'guest', title: '客人人数', width: 80, sort: true}
+                ,{field: 'orderDate', title: '订单生成日期', width: 80}
+                ,{field: 'roomNumber', title: '预定房间号', width: 135, sort: true}
+            ]]
         });
+
     });
 </script>
+
 </body>
 </html>

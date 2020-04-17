@@ -11,6 +11,9 @@
         <link rel="stylesheet" href="./css/xadmin.css">
         <script src="./lib/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="./js/xadmin.js"></script>
+
+        <script src="../../layui/layui.js"></script>
+        <script type="text/javascript" src="../../lib/commom.js"></script>
         <!--[if lt IE 9]>
           <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
           <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
@@ -47,7 +50,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="layui-card-body ">
+                       <!-- <div class="layui-card-body ">
                             <table class="layui-table" lay-data="{url:'./user.json',page:true,toolbar: '#toolbarDemo',id:'test'}" lay-filter="test">
                                 <thead>
                                     <tr>
@@ -61,12 +64,38 @@
                                         <th lay-data="{field:'dw_xinzhi',templet: function(d){ return d.dw_xinzhi.titel;}}">学校</th></tr>
                                 </thead>
                             </table>
-                        </div>
+                        </div>-->
+                        <table class="layui-hide" id="demo" lay-filter="test"></table>
                     </div>
                 </div>
             </div>
         </div>
     </body>
+    <script>
+        layui.use('table', function(){
+            var table = layui.table;
+
+            //第一个实例
+            table.render({
+                elem: '#demo'
+                ,height: 312
+                ,url: baseURL+'/admin/order/processing' //数据接口
+                ,page: true //开启分页
+                ,cols: [[ //表头
+                    {field: 'roomReservationId', title: '编号', width:80, sort: true, fixed: 'left'}
+                    ,{field: 'reserveName', title: '预定人', width:100}
+                    ,{field: 'sex', title: '性别', width:100}
+                    ,{field: 'phone', title: '电话', width:150}
+                    ,{field: 'targetDate', title: '入住日期', width: 177}
+                    ,{field: 'checkOutDate', title: '退房日期', width: 177}
+                    ,{field: 'guest', title: '客人人数', width: 100, sort: true}
+                    ,{field: 'orderDate', title: '订单生成日期', width: 177}
+                    ,{field: 'roomNumber', title: '预定房间号', width: 135, sort: true}
+                ]]
+            });
+
+        });
+    </script>
     <script type="text/html" id="toolbarDemo">
         <div class = "layui-btn-container" > 
             <button class = "layui-btn layui-btn-sm" lay-event = "getCheckData" > 获取选中行数据 </button>
