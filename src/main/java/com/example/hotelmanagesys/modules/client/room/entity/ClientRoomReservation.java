@@ -107,6 +107,7 @@ public class ClientRoomReservation implements Serializable {
     @TableField(exist = false)
     private String guestRoomName;
 
-    private BigDecimal roomPrice;
+    @TableField("roomPrice")
+    private double roomPrice;
 
 }
