@@ -40,12 +40,14 @@ public class ClientRoomReservation implements Serializable {
     /**
      * 预定编号
      */
+    @TableField(value = "reserveId")
     private long reserveId;
 
     /**
      * 账号
      */
-    private String  IDCard;
+    @TableField("id_card")
+    private String  idCard;
 
     /**
      * 预定人
@@ -56,6 +58,7 @@ public class ClientRoomReservation implements Serializable {
     /**
      * 电话
      */
+
     private String phone;
 
     /**

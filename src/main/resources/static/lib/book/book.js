@@ -64,7 +64,7 @@ $('#reserve').click(function () {
         var num = $('#getRoom').val()
         var  roomNumber = num.match(/\d/g).join("");
         let ClientRoomReservation = {}
-        ClientRoomReservation.IDCard=$('#IDCard').val()
+        ClientRoomReservation.idCard=$('#IDCard').val()
         ClientRoomReservation.reserveName=$('#reserveName').val()
         ClientRoomReservation.phone=$('#phone').val()
         ClientRoomReservation.targetDate=$('#targetDate').val()
@@ -85,6 +85,7 @@ $('#reserve').click(function () {
                 contentType: 'application/json',
                 data: JSON.stringify(ClientRoomReservation),
                 success: function (obj) {
+                    console.log(JSON.stringify(ClientRoomReservation));
                     if (obj.code==200) {
                         layer.alert('预定成功！');
                     }else{

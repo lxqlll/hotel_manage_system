@@ -2,6 +2,8 @@ package com.example.hotelmanagesys.modules.client.room.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.hotelmanagesys.modules.client.guest.entity.ClientGuestRoom;
+import com.example.hotelmanagesys.modules.client.guest.service.IClientGuestRoomService;
 import com.example.hotelmanagesys.modules.client.room.entity.ClientRoomReservation;
 import com.example.hotelmanagesys.modules.client.room.service.IClientRoomReservationService;
 import com.example.hotelmanagesys.result.Response;
@@ -32,6 +34,9 @@ public class ClientRoomReservationController {
     @Autowired
     private IClientRoomReservationService iClientRoomReservationService;
 
+    @Autowired
+    private IClientGuestRoomService iClientGuestRoomService;
+
     /**
      * 预定订单
      * @param
@@ -53,14 +58,19 @@ public class ClientRoomReservationController {
     @PostMapping("/addRoomReservation")
     public Result addRoomReservation(@RequestBody ClientRoomReservation clientRoomReservation){
         clientRoomReservation.setReserveId(SystemTime.nowTime());
+        System.out.println(clientRoomReservation.getIdCard());
         boolean flag = iClientRoomReservationService.save(clientRoomReservation);
         if (flag==true){
+            QueryWrapper<ClientGuestRoom> wrapper = new QueryWrapper<>();
+            wrapper.eq("guestRoomName",clientRoomReservation.getGuestRoomName());
+            QueryWrapper<ClientGuestRoom> wrapper2 = new QueryWrapper<>();
+            ClientGuestRoom clientGuestRoom = iClientGuestRoomService.getOne(wrapper);
+            clientGuestRoom.setGuestRoomStatus("已预定");
+            iClientGuestRoomService.updateById(clientGuestRoom);
             return Response.ok("订单预约成功");
         }else{
             return Response.error(ResultEnum.INTERNAL_SERVER_ERROR);
         }
     }
-
-
 
 }
