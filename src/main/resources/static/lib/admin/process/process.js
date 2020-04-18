@@ -59,16 +59,24 @@ layui.use('table', function(){
             ,layEvent = obj.event; //获得 lay-event 对应的值
         if(layEvent === 'detail'){
 
-
-
-
-
         } else if(layEvent === 'del'){
-            layer.confirm('真的删除行么', function(index){
-                obj.del(); //删除对应行（tr）的DOM结构
-                layer.close(index);
-                //向服务端发送删除指令
+            layer.confirm('确定取消入住?', function(index){
+                $.ajax({
+                    sync: true,
+                    type: "post",
+                    url: baseURL + "/admin/info/adminLogin",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(adminInfo),
+                    success: function (obj) {
+                        obj.del(); //删除对应行（tr）的DOM结构
+                        layer.close(index);
+                    }, error: function (err) {
+                        layer.msg('操作失败');
+                    }
+                });
             });
+
         } else if(layEvent === 'edit'){
             layer.msg('编辑操作');
         }

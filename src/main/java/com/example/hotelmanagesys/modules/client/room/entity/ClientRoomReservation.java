@@ -112,4 +112,5 @@ public class ClientRoomReservation implements Serializable {
 
     private Integer state;
 
+
 }

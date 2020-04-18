@@ -58,7 +58,7 @@ public class ClientRoomReservationController {
     @PostMapping("/addRoomReservation")
     public Result addRoomReservation(@RequestBody ClientRoomReservation clientRoomReservation){
         clientRoomReservation.setReserveId(SystemTime.nowTime());
-        System.out.println(clientRoomReservation.getIdCard());
+        clientRoomReservation.setState(1);
         boolean flag = iClientRoomReservationService.save(clientRoomReservation);
         if (flag==true){
             QueryWrapper<ClientGuestRoom> wrapper = new QueryWrapper<>();
