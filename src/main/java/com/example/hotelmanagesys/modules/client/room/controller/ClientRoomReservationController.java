@@ -7,9 +7,14 @@ import com.example.hotelmanagesys.modules.client.room.service.IClientRoomReserva
 import com.example.hotelmanagesys.result.Response;
 import com.example.hotelmanagesys.result.Result;
 import com.example.hotelmanagesys.result.ResultEnum;
+import com.example.hotelmanagesys.util.SystemTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,6 +52,7 @@ public class ClientRoomReservationController {
 
     @PostMapping("/addRoomReservation")
     public Result addRoomReservation(@RequestBody ClientRoomReservation clientRoomReservation){
+        clientRoomReservation.setReserveId(SystemTime.nowTime());
         boolean flag = iClientRoomReservationService.save(clientRoomReservation);
         if (flag==true){
             return Response.ok("订单预约成功");

@@ -3,6 +3,8 @@ package com.example.hotelmanagesys.modules.client.room.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
@@ -35,11 +37,15 @@ public class ClientRoomReservation implements Serializable {
      */
     @TableId(value = "roomReservationId", type = IdType.AUTO)
     private Integer roomReservationId;
+    /**
+     * 预定编号
+     */
+    private long reserveId;
 
     /**
      * 账号
      */
-    private String sex;
+    private String  IDCard;
 
     /**
      * 预定人
@@ -98,105 +104,6 @@ public class ClientRoomReservation implements Serializable {
     @TableField(exist = false)
     private String guestRoomName;
 
+    private BigDecimal roomPrice;
 
-    public String getGuestRoomName() {
-        return guestRoomName;
-    }
-
-    public void setGuestRoomName(String guestRoomName) {
-        this.guestRoomName = guestRoomName;
-    }
-
-    public Date getTargetDate() {
-        return targetDate;
-    }
-
-    public void setTargetDate(Date targetDate) {
-        this.targetDate = targetDate;
-    }
-
-    public Date getCheckOutDate() {
-        return checkOutDate;
-    }
-
-    public void setCheckOutDate(Date checkOutDate) {
-        this.checkOutDate = checkOutDate;
-    }
-
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Integer getRoomReservationId() {
-        return roomReservationId;
-    }
-
-    public void setRoomReservationId(Integer roomReservationId) {
-        this.roomReservationId = roomReservationId;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getReserveName() {
-        return reserveName;
-    }
-
-    public void setReserveName(String reserveName) {
-        this.reserveName = reserveName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-
-    public String getGuest() {
-        return guest;
-    }
-
-    public void setGuest(String guest) {
-        this.guest = guest;
-    }
-
-    public Integer getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(Integer roomNumber) {
-        this.roomNumber = roomNumber;
-    }
 }

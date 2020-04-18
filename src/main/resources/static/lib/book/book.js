@@ -64,7 +64,7 @@ $('#reserve').click(function () {
         var num = $('#getRoom').val()
         var  roomNumber = num.match(/\d/g).join("");
         let ClientRoomReservation = {}
-        ClientRoomReservation.sex=$('#sex').val()
+        ClientRoomReservation.IDCard=$('#IDCard').val()
         ClientRoomReservation.reserveName=$('#reserveName').val()
         ClientRoomReservation.phone=$('#phone').val()
         ClientRoomReservation.targetDate=$('#targetDate').val()
@@ -75,7 +75,7 @@ $('#reserve').click(function () {
         ClientRoomReservation.remark=$('#remark').val()
         ClientRoomReservation.mail=$('#mail').val()
         ClientRoomReservation.guestRoomName=$('#getRoom').val()
-        if($('#getRoom').val()!=null && $('#sex').val()!=null &&
+        if($('#getRoom').val()!=null && $('#IDCard').val()!=null &&
             $('#reserveName').val()){
             $.ajax({
                 sync: false,

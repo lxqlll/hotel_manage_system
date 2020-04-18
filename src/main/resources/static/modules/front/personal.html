@@ -33,14 +33,13 @@
     <!-- //Web-Fonts -->
 
     <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
-    <link rel="stylesheet" href="../../layui/layui.js"  media="all">
+    <script src="../../layui/layui.js" charset="utf-8"></script>
 </head>
 <style>
     /*最外部div*/
     .largest{
         width: auto;
         height: 700px;
-        border:1px solid red;
     }
     /*中间div*/
     .middy{
@@ -49,7 +48,6 @@
         left:17%;
         width:1000px;
         height:600px;
-        border:1px solid #4dd0e1;
     }
     /*左部div*/
     .port{
@@ -61,7 +59,6 @@
     .port-name{
         width: auto;
         height:100px;
-        border:1px solid #3e2723;
     }
     /*左边用户名字div*/
     .port-name-user{
@@ -70,7 +67,6 @@
         left:10%;
         width:170px;
         height:30px;
-        border:1px solid #3e2723;
     }
     /*左边退出登录div*/
     .port-name-login{
@@ -79,27 +75,61 @@
         left:10%;
         width:170px;
         height:30px;
-        border:1px solid #3e2723;
     }
     /*设置超链接字体颜色*/
     a{
         font-size: 14px;
         color:#636363;
     }
-    /*左边尾部*/
+    /*左边中间div*/
     .port-install{
         width: auto;
         height:496px;
-        border:1px solid #9fcdff;
     }
-    /*右边div*/
-    .skillful{
+    /*左边尾部div*/
+    .port-below{
         position: relative;
-        top:-100%;
-        left:25%;
-        width:748px;
-        height:598px;
-        border:1px solid gold;
+        top:150px;
+        width:auto;
+        height:326px;
+    }
+    /*左边尾部联系方式div*/
+    .port-below-relation{
+        width: auto;
+        height: 80px;
+        font-size: 16px;
+
+    }
+    .relation-p{
+        position: relative;
+        top:-613px;
+        left: 35px;
+        height:80px;
+        color:black;
+    }
+    .port-below-contact{
+        position: relative;
+        top:-560px;
+        height:80px;
+    }
+    .port-below-contact p{
+        height:80px;
+        position: relative;
+        left:8px;
+        font-size: 14px;
+        color:#636363;
+    }
+    .port-below-email{
+        position:relative;
+        top:-480px;
+        height: 80px;
+    }
+    .email-p{
+        position: relative;
+        height:80px;
+        left:8px;
+        font-size: 14px;
+        color:#636363;
     }
     .layui-tab-title li{
         display: block;
@@ -110,7 +140,97 @@
     }
     .layui-tab-content{
         float: left;
-        width: 500px;
+        width: 776px;
+    }
+    .layui-tab-title {
+        float: left;
+        width: 218px;
+    }
+    /*右边div*/
+    .layui-tab-content {
+        position: relative;
+        width:800px;
+        top:-161px;
+        height:598px;
+        left:101%;
+        border:1px solid gold;
+    }
+    /*个人信息div*/
+    .basic{
+        height: 20px;
+        border:1px solid #0f9d58;
+    }
+    ul li{
+        display: inline-block;
+    }
+    .fieldset-email{
+        position: relative;
+        left: 20px;
+        top: 40px;
+        font-size: 16px;
+    }
+    .fieldset-email2{
+        position: relative;
+        left: 200px;
+        top: 40px;
+        font-size: 16px;
+    }
+    .fieldset-email3{
+        position: relative;
+        left: -425px;
+        top: 100px;
+        font-size: 16px;
+    }
+    .fieldset-email4{
+        position: relative;
+        left: 422px;
+        top: 42px;
+        font-size: 16px;
+    }
+    .fieldset-phone{
+        background : rgb(198, 198, 185);
+    }
+    input{
+        web-kit-appearance:none;
+        moz-appearance: none;
+        font-size:1.3em;
+        height:1.7em;
+        border-radius:4px;
+        border:1px solid #ebebeb;
+        background: #ebebeb;
+        color:#000000;
+        outline:0;
+    }
+    /*个人信息文本框*/
+    .box{
+        position:relative;
+        left:100px;
+        top:7px;
+    }
+    .box2{
+        position:relative;
+        left:270px;
+        top:7px
+    }
+    .box3{
+        position: relative;
+        left: -344px;
+        top: 70px;
+    }
+    .box4{
+        position: relative;
+        left: 492px;
+        top: 10px;
+    }
+    #reserve{
+        position: relative;
+        top:-300px;
+        left:800px;
+        height:50px;
+    }
+    .layui-tab {
+        margin: 20px 0;
+        text-align: left!important;
     }
 </style>
 <body>
@@ -182,39 +302,62 @@
 
 <!-- 个人中心管理 -->
 <div class="register-w3 py-5">
-    <div class="largest">123
+    <div class="largest">
         <div class="middy">
-            <div class="port">
-                <div class="port-name">
-                    <div class="port-name-user">
-                        曾建波啊&nbsp;&nbsp;用户
-                    </div>
-                    <div class="port-name-login">
-                        <a href=""><u>退出登录</u></a>
-                    </div>
-                </div>
-                <div class="port-install" >
-                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                        <ul class="layui-tab-title">
-                            <li class="layui-this">网站设置</li>
-                            <li>用户管理</li>
-                            <li>权限分配</li>
-                            <li>商品管理</li>
-                            <li>订单管理</li>
-                        </ul>
-                        <div class="layui-tab-content" style="height: 100px;">
-                            <div class="layui-tab-item layui-show">内容不一样是要有，因为你可以监听tab事件（阅读下文档就是了）</div>
-                            <div class="layui-tab-item">内容2</div>
-                            <div class="layui-tab-item">内容3</div>
-                            <div class="layui-tab-item">内容4</div>
-                            <div class="layui-tab-item">内容5</div>
+                <div class="port">
+                    <div class="port-name">
+                        <div class="port-name-user">
+                            曾建波啊&nbsp;&nbsp;用户
+                        </div>
+                        <div class="port-name-login">
+                            <a href=""><u>退出登录</u></a>
                         </div>
                     </div>
+                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">个人信息</li>
+                            <li>往期订单</li>
+                            <li>预定订单</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+                                <div class="basic">
+                                    <div class="title">基本信息</div>
+                                </div>
+                                <div class="fieldset">
+                                    <ul>
+                                        <li><label class="fieldset-email">邮箱*</label>
+                                            <div class="box"><input id="" type="text" value="123" name=""></div>
+                                        </li>
+                                        <li><label class="fieldset-email2">电话*</label>
+                                            <div class="box2"><input readonly="readonly" class="fieldset-phone" type="text" value="123" name="" /></div>
+                                        </li>
+                                        <li><label class="fieldset-email3">旧密码</label>
+                                            <div class="box3"><input id="" type="text" value="123" name=""></div>
+                                        </li>
+                                        <li><label class="fieldset-email4">新密码</label>
+                                            <div class="box4"><input id="" type="text" value="123" name=""></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">内容2</div>
+                            <div class="layui-tab-item">内容3</div>
+                        </div>
+                    </div>
+                    <div class="port-below">
+                        <div class="port-below-relation">
+                            <p class="relation-p">秀客来酒店联系方式</p>
+                        </div>
+                        <div class="port-below-contact">
+                            <p>酒店前台热线：400 122 6622<br>(周一至周日 08:00 - 24:00)</p>
+                        </div>
+                        <div class="port-below-email">
+                            <p class="email-p">电子邮件:<br>china@xiukelai.com</p>
+                        </div>
+                    </div>
+                    <button type="button" id="reserve" style="background: #0C0C0C;color: white" class="btn submit mt-3">确认保存</button>
                 </div>
-
-            </div>
-            <div class="skillful">
-                789
             </div>
         </div>
     </div>
