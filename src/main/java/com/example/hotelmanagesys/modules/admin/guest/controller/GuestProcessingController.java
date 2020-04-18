@@ -3,7 +3,6 @@ package com.example.hotelmanagesys.modules.admin.guest.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.hotelmanagesys.modules.client.guest.entity.ClientGuestRoom;
 import com.example.hotelmanagesys.modules.client.guest.service.IClientGuestRoomService;
-import com.example.hotelmanagesys.modules.client.infor.entity.InforMation;
 import com.example.hotelmanagesys.result.LayuiVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
