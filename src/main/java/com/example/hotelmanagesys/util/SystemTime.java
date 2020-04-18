@@ -29,7 +29,4 @@ public class SystemTime {
         return Long.parseLong(nowTime);
     }
 
-    public static void main(String[] args) {
-        System.out.println(nowTime());
-    }
 }

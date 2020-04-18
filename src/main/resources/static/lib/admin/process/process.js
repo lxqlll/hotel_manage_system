@@ -58,17 +58,17 @@ layui.use('table', function(){
         var data = obj.data //获得当前行数据
             ,layEvent = obj.event; //获得 lay-event 对应的值
         if(layEvent === 'detail'){
-
+            xadmin.open('验证客户信息','verify_client.html',530,240);
         } else if(layEvent === 'del'){
             layer.confirm('确定取消入住?', function(index){
                 $.ajax({
                     sync: true,
                     type: "post",
-                    url: baseURL + "/admin/info/adminLogin",
+                    url: baseURL + "/room/updateRoomId",
                     dataType: 'json',
                     contentType: 'application/json',
-                    data: JSON.stringify(adminInfo),
-                    success: function (obj) {
+                    data: JSON.stringify(data),
+                    success: function (data) {
                         obj.del(); //删除对应行（tr）的DOM结构
                         layer.close(index);
                     }, error: function (err) {

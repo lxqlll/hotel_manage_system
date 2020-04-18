@@ -75,6 +75,9 @@ public class ClientRoomReservationController {
 
     @PostMapping("/updateRoomId")
     public Result updateRoomId(@RequestBody ClientRoomReservation clientRoomReservation){
+        QueryWrapper<ClientRoomReservation> wrapper = new QueryWrapper<>();
+        wrapper.eq("roomReservationId",clientRoomReservation.getRoomReservationId());
+        clientRoomReservation =iClientRoomReservationService.getOne(wrapper);
         clientRoomReservation.setState(0);
         if (iClientRoomReservationService.updateById(clientRoomReservation)) {
             return Response.ok("修改成功了");
