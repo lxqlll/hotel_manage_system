@@ -2,7 +2,7 @@
 var guestRoomName = $.cookie('userName');
 if (guestRoomName!=null){
     alert(1)
-    $('#personalCenter').append("<li><a href=\"front/personal.html\" class=\"active\">个人中心</a></li>")
+    $('#personalCenter').append("<li><a href=\"front/personal.html\" id='myCenter' class=\"active\">个人中心</a></li>")
     $('#personalCenter').append("<li><a id='outIn'  class=\"active\">退出登录</a></li>")
 }else{
     alert(2)
@@ -71,6 +71,35 @@ $('#show').on('click','.bookNow',function(){
     exp.setTime(exp.getTime() + 60 * 1000 * 15);
     document.cookie = "guestRoomName=" + unescape(name) + ";expires=" + exp.toGMTString();
     window.location.href=baseWebURL+"/modules/front/book.html#";
+})
+
+$('#myCenter').click(function () {
+    $.ajax({
+        sync:false,
+        type: 'post',
+        url: baseURL + "/client/infor/clientLogin",
+        dataType: 'json',
+        contentType: 'application/json',
+        success:function (obj) {
+            if (obj.code==200){
+                let data = obj.data;
+                $("#fieldsetOne").append("<ul>\n" +
+                    "                    <li><label class=\"fieldset-email\">邮箱*</label>\n" +
+                    "                        <div class=\"box\"><input id=\"\" type=\"text\" value="+data[i].email+" name=\"\"></div>\n" +
+                    "                        </li>\n" +
+                    "                        <li><label class=\"fieldset-email2\">电话*</label>\n" +
+                    "                        <div class=\"box2\"><input readonly=\"readonly\" class=\"fieldset-phone\" type=\"text\" value="+data[i].phone+" name=\"\" /></div>\n" +
+                    "                        </li>\n" +
+                    "                        <li><label class=\"fieldset-email3\">旧密码</label>\n" +
+                    "                        <div class=\"box3\"><input id=\"password1\" type=\"text\" value=\"123\" name=\"\"></div>\n" +
+                    "                        </li>\n" +
+                    "                        <li><label class=\"fieldset-email4\">新密码</label>\n" +
+                    "                        <div class=\"box4\"><input id=\"password2\" type=\"text\" value=\"123\" name=\"\"></div>\n" +
+                    "                        </li>\n" +
+                    "                        </ul>\n"+"<button type=\"button\" id=\"reserve\" style=\"background: #0C0C0C;color: white\" class=\"btn submit mt-3\">确认保存</button>")
+            }
+        }
+    })
 })
 
 

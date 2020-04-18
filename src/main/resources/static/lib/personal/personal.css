@@ -1,0 +1,196 @@
+/*最外部div*/
+.largest{
+    width: auto;
+    height: 700px;
+}
+/*中间div*/
+.middy{
+    position: absolute;
+    top:440px;
+    left:17%;
+    width:1000px;
+    height:600px;
+}
+/*左部div*/
+.port{
+    width:220px;
+    height: 598px;
+    border:1px solid #636363;
+}
+/*左边头部*/
+.port-name{
+    width: auto;
+    height:100px;
+}
+/*左边用户名字div*/
+.port-name-user{
+    position: relative;
+    top:14%;
+    left:10%;
+    width:170px;
+    height:30px;
+}
+/*左边退出登录div*/
+.port-name-login{
+    position: relative;
+    top:18%;
+    left:10%;
+    width:170px;
+    height:30px;
+}
+/*设置超链接字体颜色*/
+a{
+    font-size: 14px;
+    color:#636363;
+}
+/*左边中间div*/
+.port-install{
+    width: auto;
+    height:496px;
+}
+/*左边尾部div*/
+.port-below{
+    position: relative;
+    top:150px;
+    width:auto;
+    height:326px;
+}
+/*左边尾部联系方式div*/
+.port-below-relation{
+    width: auto;
+    height: 80px;
+    font-size: 16px;
+
+}
+.relation-p{
+    position: relative;
+    top:-613px;
+    left: 35px;
+    height:80px;
+    color:black;
+}
+.port-below-contact{
+    position: relative;
+    top:-560px;
+    height:80px;
+}
+.port-below-contact p{
+    height:80px;
+    position: relative;
+    left:8px;
+    font-size: 14px;
+    color:#636363;
+}
+.port-below-email{
+    position:relative;
+    top:-480px;
+    height: 80px;
+}
+.email-p{
+    position: relative;
+    height:80px;
+    left:8px;
+    font-size: 14px;
+    color:#636363;
+}
+.layui-tab-title li{
+    display: block;
+}
+.layui-tab-title{
+    float: left;
+    width: 200px;
+}
+.layui-tab-content{
+    float: left;
+    width: 776px;
+}
+.layui-tab-title {
+    float: left;
+    width: 218px;
+}
+/*右边div*/
+.layui-tab-content {
+    position: relative;
+    width:800px;
+    top:-161px;
+    height:598px;
+    left:100%;
+    border:1px solid #636363;
+}
+/*个人信息div*/
+.basic{
+    height: 20px;
+    border:1px solid #636363;
+}
+ul li{
+    display: inline-block;
+}
+.fieldset-email{
+    position: relative;
+    left: 20px;
+    top: 40px;
+    font-size: 16px;
+}
+.fieldset-email2{
+    position: relative;
+    left: 200px;
+    top: 40px;
+    font-size: 16px;
+}
+.fieldset-email3{
+    position: relative;
+    left: -425px;
+    top: 100px;
+    font-size: 16px;
+}
+.fieldset-email4{
+    position: relative;
+    left: 422px;
+    top: 42px;
+    font-size: 16px;
+}
+.fieldset-phone{
+    background : rgb(198, 198, 185);
+}
+input{
+    web-kit-appearance:none;
+    moz-appearance: none;
+    font-size:1.3em;
+    height:1.7em;
+    border-radius:4px;
+    border:1px solid #ebebeb;
+    background: #ebebeb;
+    color:#000000;
+    outline:0;
+}
+/*个人信息文本框*/
+.box{
+    position:relative;
+    left:100px;
+    top:7px;
+}
+.box2{
+    position:relative;
+    left:270px;
+    top:7px
+}
+.box3{
+    position: relative;
+    left: -344px;
+    top: 70px;
+}
+.box4{
+    position: relative;
+    left: 492px;
+    top: 10px;
+}
+#reserve{
+    position: relative;
+    top:-300px;
+    left:800px;
+    height:50px;
+}
+.layui-tab {
+    margin: 20px 0;
+    text-align: left!important;
+}

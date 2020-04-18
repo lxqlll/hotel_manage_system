@@ -73,4 +73,15 @@ public class ClientRoomReservationController {
         }
     }
 
+    @PostMapping("/updateRoomId")
+    public Result updateRoomId(@RequestBody ClientRoomReservation clientRoomReservation){
+        clientRoomReservation.setState(0);
+        if (iClientRoomReservationService.updateById(clientRoomReservation)) {
+            return Response.ok("修改成功了");
+        }else{
+            return Response.error(ResultEnum.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
 }

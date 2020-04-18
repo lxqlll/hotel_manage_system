@@ -110,4 +110,6 @@ public class ClientRoomReservation implements Serializable {
     @TableField("roomPrice")
     private double roomPrice;
 
+    private Integer state;
+
 }

@@ -34,203 +34,31 @@
 
     <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
     <script src="../../layui/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../../lib/personal/personal.css"  media="all">
+    <script src="../../lib/index/index.js" charset="utf-8"></script>
 </head>
 <style>
-    /*最外部div*/
-    .largest{
-        width: auto;
-        height: 700px;
-    }
-    /*中间div*/
-    .middy{
-        position: absolute;
-        top:440px;
-        left:17%;
-        width:1000px;
-        height:600px;
-    }
-    /*左部div*/
-    .port{
-        width:220px;
-        height: 598px;
-        border:1px solid #0f9d58;
-    }
-    /*左边头部*/
-    .port-name{
-        width: auto;
-        height:100px;
-    }
-    /*左边用户名字div*/
-    .port-name-user{
-        position: relative;
-        top:14%;
-        left:10%;
-        width:170px;
-        height:30px;
-    }
-    /*左边退出登录div*/
-    .port-name-login{
-        position: relative;
-        top:18%;
-        left:10%;
-        width:170px;
-        height:30px;
-    }
-    /*设置超链接字体颜色*/
-    a{
-        font-size: 14px;
-        color:#636363;
-    }
-    /*左边中间div*/
-    .port-install{
-        width: auto;
-        height:496px;
-    }
-    /*左边尾部div*/
-    .port-below{
-        position: relative;
-        top:150px;
+    .previous{
         width:auto;
-        height:326px;
+        height: 160px;
+        border:1px solid #0C0C0C;
     }
-    /*左边尾部联系方式div*/
-    .port-below-relation{
-        width: auto;
-        height: 80px;
-        font-size: 16px;
-
-    }
-    .relation-p{
-        position: relative;
-        top:-613px;
-        left: 35px;
-        height:80px;
-        color:black;
-    }
-    .port-below-contact{
-        position: relative;
-        top:-560px;
-        height:80px;
-    }
-    .port-below-contact p{
-        height:80px;
-        position: relative;
-        left:8px;
-        font-size: 14px;
+    .items{
         color:#636363;
-    }
-    .port-below-email{
         position:relative;
-        top:-480px;
-        height: 80px;
+        top:30px;
+        left:30px;
+        height:30px;
+        width: 80px;
     }
-    .email-p{
+    .previous-price{
         position: relative;
-        height:80px;
-        left:8px;
-        font-size: 14px;
-        color:#636363;
+        left:-60px;
     }
-    .layui-tab-title li{
-        display: block;
-    }
-    .layui-tab-title{
-        float: left;
-        width: 200px;
-    }
-    .layui-tab-content{
-        float: left;
-        width: 776px;
-    }
-    .layui-tab-title {
-        float: left;
-        width: 218px;
-    }
-    /*右边div*/
-    .layui-tab-content {
-        position: relative;
-        width:800px;
-        top:-161px;
-        height:598px;
-        left:101%;
-        border:1px solid gold;
-    }
-    /*个人信息div*/
-    .basic{
-        height: 20px;
-        border:1px solid #0f9d58;
-    }
-    ul li{
-        display: inline-block;
-    }
-    .fieldset-email{
-        position: relative;
-        left: 20px;
-        top: 40px;
-        font-size: 16px;
-    }
-    .fieldset-email2{
-        position: relative;
-        left: 200px;
-        top: 40px;
-        font-size: 16px;
-    }
-    .fieldset-email3{
-        position: relative;
-        left: -425px;
-        top: 100px;
-        font-size: 16px;
-    }
-    .fieldset-email4{
-        position: relative;
-        left: 422px;
-        top: 42px;
-        font-size: 16px;
-    }
-    .fieldset-phone{
-        background : rgb(198, 198, 185);
-    }
-    input{
-        web-kit-appearance:none;
-        moz-appearance: none;
-        font-size:1.3em;
-        height:1.7em;
-        border-radius:4px;
-        border:1px solid #ebebeb;
-        background: #ebebeb;
-        color:#000000;
-        outline:0;
-    }
-    /*个人信息文本框*/
-    .box{
-        position:relative;
-        left:100px;
-        top:7px;
-    }
-    .box2{
-        position:relative;
-        left:270px;
-        top:7px
-    }
-    .box3{
-        position: relative;
-        left: -344px;
-        top: 70px;
-    }
-    .box4{
-        position: relative;
-        left: 492px;
-        top: 10px;
-    }
-    #reserve{
-        position: relative;
-        top:-300px;
-        left:800px;
-        height:50px;
-    }
-    .layui-tab {
-        margin: 20px 0;
-        text-align: left!important;
+    table{
+        width:860px;
+        border-collapse:separate;
+        border-spacing:90px 30px;
     }
 </style>
 <body>
@@ -324,25 +152,52 @@
                                 <div class="basic">
                                     <div class="title">基本信息</div>
                                 </div>
-                                <div class="fieldset">
-                                    <ul>
-                                        <li><label class="fieldset-email">邮箱*</label>
-                                            <div class="box"><input id="" type="text" value="123" name=""></div>
-                                        </li>
-                                        <li><label class="fieldset-email2">电话*</label>
-                                            <div class="box2"><input readonly="readonly" class="fieldset-phone" type="text" value="123" name="" /></div>
-                                        </li>
-                                        <li><label class="fieldset-email3">旧密码</label>
-                                            <div class="box3"><input id="" type="text" value="123" name=""></div>
-                                        </li>
-                                        <li><label class="fieldset-email4">新密码</label>
-                                            <div class="box4"><input id="" type="text" value="123" name=""></div>
-                                        </li>
-                                    </ul>
+                                <div id="fieldsetOne" class="fieldset">
+
                                 </div>
                             </div>
-                            <div class="layui-tab-item">内容2</div>
-                            <div class="layui-tab-item">内容3</div>
+                            <div class="layui-tab-item">
+                                <div class="previous">
+                                    <div class="items">我的订单</div>
+                                    <table class="previous-price">
+                                        <tr>
+                                            <th>订单编号</th>
+                                            <th>结算日期</th>
+                                            <th>住房名字</th>
+                                            <th>订单状态</th>
+                                            <th>结算金额</th>
+                                        </tr>
+                                        <tr>
+                                            <td>210578463</td>
+                                            <td>2022-04-18</td>
+                                            <td>豪华房101</td>
+                                            <td>已结算</td>
+                                            <td>488￥</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="previous">
+                                    <div class="items">我的订单</div>
+                                    <table class="previous-price">
+                                        <tr>
+                                            <th>订单编号</th>
+                                            <th>结算日期</th>
+                                            <th>住房名字</th>
+                                            <th>订单状态</th>
+                                            <th>结算金额</th>
+                                        </tr>
+                                        <tr>
+                                            <td>210578463</td>
+                                            <td>2022-04-18</td>
+                                            <td>豪华房101</td>
+                                            <td>已结算</td>
+                                            <td>488￥</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="port-below">
@@ -356,7 +211,7 @@
                             <p class="email-p">电子邮件:<br>china@xiukelai.com</p>
                         </div>
                     </div>
-                    <button type="button" id="reserve" style="background: #0C0C0C;color: white" class="btn submit mt-3">确认保存</button>
+
                 </div>
             </div>
         </div>
