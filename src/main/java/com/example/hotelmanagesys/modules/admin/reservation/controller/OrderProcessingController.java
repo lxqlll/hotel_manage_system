@@ -35,7 +35,7 @@ public class OrderProcessingController {
     public LayuiVo queryOrderProcessing(Integer page,Integer limit){
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("state",1);
-        queryWrapper.apply("DATE_FORMAT(targetDate,'%Y-%M-%d') = DATE_FORMAT(NOW(),'%Y-%M-%d')");
+        queryWrapper.apply("DATE_FORMAT(checkOutDate,'%Y-%M-%d') >= DATE_FORMAT(NOW(),'%Y-%M-%d')");
         int count = iClientRoomReservationService.count();
         // 实例化创建分页对象
         // page 当前页
@@ -64,7 +64,7 @@ public class OrderProcessingController {
     @GetMapping("/historyReservation")
     public LayuiVo historyReservation(Integer page,Integer limit){
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.apply("DATE_FORMAT(targetDate,'%Y-%M-%d') != DATE_FORMAT(NOW(),'%Y-%M-%d')");
+        wrapper.apply("DATE_FORMAT(checkOutDate,'%Y-%M-%d') != DATE_FORMAT(NOW(),'%Y-%M-%d')");
         wrapper.eq("state",0);
         int result  = iClientRoomReservationService.count();
         // 实例化创建分页对象
