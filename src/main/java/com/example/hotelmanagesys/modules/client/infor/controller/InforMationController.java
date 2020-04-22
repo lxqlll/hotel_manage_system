@@ -1,8 +1,6 @@
 package com.example.hotelmanagesys.modules.client.infor.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.hotelmanagesys.modules.client.infor.entity.InforMation;
 import com.example.hotelmanagesys.modules.client.infor.service.IInforMationService;
 import com.example.hotelmanagesys.result.Response;
@@ -18,9 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -97,11 +92,12 @@ public class InforMationController {
     public Result updateClientInfo(@RequestBody InforMation inforMation){
         //调用修改方法
         boolean falg = iInforMationService.updateById(inforMation);
+        System.out.println(inforMation.getEmail());
         //判断是否有无数据
         if (!falg){
             return Response.error(ResultEnum.UPDATE_ERROR);
         }else{
-            return Response.ok("修改个人信息成功");
+            return Response.ok("新增用户成功");
         }
     }
 }

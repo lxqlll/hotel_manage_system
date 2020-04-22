@@ -11,7 +11,16 @@
     </style>
 </head>
 <body>
-
+<div class="layui-card-body" align="right">
+    <form class="layui-form layui-col-space5">
+        <div class="layui-inline layui-show-xs-block">
+            <input type="text" name="username" placeholder="请输入关键字" autocomplete="off" class="layui-input"></div>
+        <div class="layui-inline layui-show-xs-block">
+            <button class="layui-btn" lay-submit="" lay-filter="sreach">
+                <i class="layui-icon"></i></button>
+        </div>
+    </form>
+</div>
 <table class="layui-hide" id="demo" lay-filter="test"></table>
 
 <script type="text/html" id="barDemo">
@@ -70,7 +79,38 @@
                         layer.msg('请选择一行');
                     } else {
                         console.log(obj);
-                        layer.msg('删除'+checkStatus.data[0].guestRoomId);
+                        var arr=[];//存储id的数组
+                        data.forEach(function(item){
+                            arr.push(item.id);
+                        })
+                        console.log(arr);
+                        //执行批量删除
+                        $.ajax({
+                            sync: false,
+                            type: "post",
+                            url: baseURL + "/admin/admininfro/removeAdminInfoByIds",
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            data: JSON.stringify(arr),
+                            success: function (data) {
+                                if(data.code==200){
+                                    //发异步，把数据提交给php
+                                    layer.alert("删除成功", {
+                                            icon: 6
+                                        },
+                                        function() {
+                                            window.parent.location.reload();
+                                            var index = parent.layer.getFrameIndex(window.name);
+                                            parent.layer.close(index);
+                                        });
+                                }else {
+                                    layer.msg('删除失败');
+                                }
+                            }, error: function (err) {
+                                layer.msg('操作失败');
+                            }
+                        });
+                        return false;
                     }
                     break;
             };
@@ -80,10 +120,32 @@
         table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
             var data = obj.data //获得当前行数据
                 ,layEvent = obj.event; //获得 lay-event 对应的值
+            var arr=[];//存储id的数组
+            arr.push(data.id);
             if(layEvent === 'detail'){
                 layer.msg(JSON.stringify(data));
             } else if(layEvent === 'del'){
                 layer.confirm('真的删除行么', function(index){
+                    $.ajax({
+                        sync: false,
+                        type: "post",
+                        url: baseURL + "/admin/admininfro/removeAdminInfoByIds",
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        data: JSON.stringify(arr),
+                        success: function (data) {
+                            if(data.code==200){
+                                //发异步，把数据提交给php
+                                layer.alert("删除成功", {
+                                    icon: 6
+                                });
+                            }else {
+                                layer.msg('删除失败');
+                            }
+                        }, error: function (err) {
+                            layer.msg('操作失败');
+                        }
+                    });
                     obj.del(); //删除对应行（tr）的DOM结构
                     layer.close(index);
                     //向服务端发送删除指令
