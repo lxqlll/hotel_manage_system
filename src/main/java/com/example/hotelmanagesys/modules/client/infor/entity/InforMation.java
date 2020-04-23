@@ -52,6 +52,8 @@ public class InforMation implements Serializable {
      */
     private String password;
 
+
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

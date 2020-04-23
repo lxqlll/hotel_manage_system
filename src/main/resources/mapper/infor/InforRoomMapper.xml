@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hotelmanagesys.modules.admin.order.mapper.ServiceOrderInformationMapper">
+    <resultMap id="InforRoomMapper" type="com.example.hotelmanagesys.modules.client.infor.entity">
+        <id column="clientId" property="clientId"></id>
+        <result column="clientName" property="clientName"></result>
+    </resultMap>
+    <resultMap id="RoomMapper" type="InforRoomMapper">
+        <id column="roomReservationId" property="roomReservationId"></id>
+        <result column="targetDate" property="targetDate"></result>
+        <result column="checkOutDate" property="checkOutDate"></result>
+        <result column="roomNumber" property="roomNumber"></result>
+        <result column="roomPrice" property="roomPrice"></result>
+    </resultMap>
+    
+    <select id="selectUserNameRoom" resultMap="RoomMapper">
+        select * from client_infor_mation a
+        LEFT JOIN client_room_reservation b
+        on a.clientId = b.inforId
+        where a.clientId = #{clientId}
+    </select>
+</mapper>

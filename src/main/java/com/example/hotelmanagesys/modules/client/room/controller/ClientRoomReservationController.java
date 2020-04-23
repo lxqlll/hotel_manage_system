@@ -4,6 +4,7 @@ package com.example.hotelmanagesys.modules.client.room.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.hotelmanagesys.modules.client.guest.entity.ClientGuestRoom;
 import com.example.hotelmanagesys.modules.client.guest.service.IClientGuestRoomService;
+import com.example.hotelmanagesys.modules.client.infor.entity.InforMation;
 import com.example.hotelmanagesys.modules.client.room.entity.ClientRoomReservation;
 import com.example.hotelmanagesys.modules.client.room.service.IClientRoomReservationService;
 import com.example.hotelmanagesys.result.Response;
@@ -85,6 +86,18 @@ public class ClientRoomReservationController {
             return Response.error(ResultEnum.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    /**
+     * 根据用户编号查询预订订单
+     * @return
+     */
+    @PostMapping("/queryUserIdRoom")
+    public Result queryUserIdRoom(@RequestBody InforMation inforMation){
+        QueryWrapper wrapper = new QueryWrapper<>();
+        wrapper.eq("clientName",inforMation.getClientName());
+        List<InforMation> inforMationList = iClientGuestRoomService.list(wrapper);
+       return Response.ok(1);
     }
 
 }
