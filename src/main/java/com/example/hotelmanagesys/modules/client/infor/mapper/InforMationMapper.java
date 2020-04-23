@@ -3,6 +3,7 @@ package com.example.hotelmanagesys.modules.client.infor.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.hotelmanagesys.modules.client.infor.entity.InforMation;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -18,5 +19,5 @@ import javax.annotation.Resource;
 @Mapper
 @Repository
 public interface InforMationMapper extends BaseMapper<InforMation> {
-
+    public List<InforMation> selectUserNameRoom();
 }

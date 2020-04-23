@@ -31,11 +31,17 @@
     <link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
     <!-- //Web-Fonts -->
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/jquery.cookie.js"></script>
+    <script src="../../lib/commom.js"></script>
 
-    <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
     <script src="../../layui/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../../layui/css/layui.css"  media="all">
+
+    <script src="../../lib/personal/personal.js"></script>
     <link rel="stylesheet" href="../../lib/personal/personal.css"  media="all">
     <script src="../../lib/index/index.js" charset="utf-8"></script>
+
 </head>
 <style>
     .previous{
@@ -51,14 +57,14 @@
         height:30px;
         width: 80px;
     }
-    .previous-price{
+    .previous-price {
         position: relative;
-        left:-60px;
+        left: -93px;
     }
-    table{
-        width:860px;
-        border-collapse:separate;
-        border-spacing:90px 30px;
+    table {
+        width: 960px;
+        border-collapse: separate;
+        border-spacing: 104px 20px;
     }
 </style>
 <body>
@@ -153,7 +159,32 @@
                                     <div class="title">基本信息</div>
                                 </div>
                                 <div id="fieldsetOne" class="fieldset">
-
+                                        <ul>
+                                            <li>
+                                                <label class=\"fieldset-email\">邮箱*</label>
+                                                <div class=\"box\">
+                                                    <input id="emailType" type=\"text\" value="" name=\"\">
+                                                </div>
+                                            <li>
+                                                <label class=\"fieldset-email2\">电话*</label>
+                                                <div class=\"box2\">
+                                                    <input id="phoneType" readonly=\"readonly\" class=\"fieldset-phone\" type=\"text\" value="" name=\"\" />
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class=\"fieldset-email3\">旧密码</label>
+                                                <div class=\"box3\">
+                                                    <input id=\"password1\" type=\"text\" value=\"123\" name=\"\">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label class=\"fieldset-email4\">新密码</label>
+                                                <div class=\"box4\">
+                                                    <input id=\"password2\" type=\"text\" value=\"123\" name=\"\">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    <button type=\"button\" id=\"reserve\" style="background:#0C0C0C;color: white;" class="btn submit mt-3">确认保存</button>
                                 </div>
                             </div>
                             <div class="layui-tab-item">
@@ -179,23 +210,24 @@
                             </div>
                             <div class="layui-tab-item">
                                 <div class="previous">
-                                    <div class="items">我的订单</div>
+                                    <div class="items">预订订单</div>
                                     <table class="previous-price">
                                         <tr>
                                             <th>订单编号</th>
-                                            <th>结算日期</th>
+                                            <th>入住日期</th>
+                                            <th>退房日期</th>
                                             <th>住房名字</th>
-                                            <th>订单状态</th>
                                             <th>结算金额</th>
                                         </tr>
                                         <tr>
                                             <td>210578463</td>
                                             <td>2022-04-18</td>
+                                            <td>2022-04-19</td>
                                             <td>豪华房101</td>
-                                            <td>已结算</td>
                                             <td>488￥</td>
                                         </tr>
                                     </table>
+                                    <div><input type="submit" id="reserve" style="background: #0C0C0C;color: white" class="btn submit mt-3" value="取消预订" /></div>
                                 </div>
                             </div>
                         </div>
