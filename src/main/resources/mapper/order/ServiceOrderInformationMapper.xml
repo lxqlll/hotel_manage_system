@@ -2,4 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.hotelmanagesys.modules.admin.order.mapper.ServiceOrderInformationMapper">
 
+    <select id="findOrderInformation" parameterType="int" resultType="com.example.hotelmanagesys.modules.admin.order.entity.OrderInformationVo">
+            select
+                *
+            from
+                service_order_information a
+            LEFT JOIN
+                client_room_reservation b
+            on
+                b.roomReservationId = a.reservation_id
+            limit
+                #{page},#{limit}
+    </select>
+
+    <select id="findOrderInformationCount" parameterType="int" resultType="int">
+            select
+                count(*)
+            from
+                service_order_information a
+            LEFT JOIN
+                client_room_reservation b
+            on
+                b.roomReservationId = a.reservation_id
+    </select>
+
 </mapper>
