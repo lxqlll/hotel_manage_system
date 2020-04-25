@@ -90,15 +90,16 @@ public class OrderProcessingController {
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("id_card",map.get("identity"));
         queryWrapper.eq("phone",map.get("phone"));
+        queryWrapper.eq("state",1);
         // 实例化创建分页对象
         // page 当前页
         // limit 每页显示条数
         //调用分页方法
-        ClientRoomReservation clientRoomReservation =
-                iClientRoomReservationService.getOne(queryWrapper);
+        List<ClientRoomReservation> list =
+                iClientRoomReservationService.listMaps(queryWrapper);
         //获取Page对象中的集合System.out.println("<<<<<<<<<<<<<<<<<"+pageList.getRecords());
-        if (clientRoomReservation!=null){
-            return Response.ok();
+        if (list!=null){
+            return Response.ok(list);
         }else {
             return Response.error();
         }

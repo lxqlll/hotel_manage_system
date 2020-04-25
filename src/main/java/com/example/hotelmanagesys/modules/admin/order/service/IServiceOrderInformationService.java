@@ -1,8 +1,11 @@
 package com.example.hotelmanagesys.modules.admin.order.service;
 
+import com.example.hotelmanagesys.modules.admin.order.entity.OrderInformationVo;
 import com.example.hotelmanagesys.modules.admin.order.entity.ServiceOrderInformation;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,5 +17,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface IServiceOrderInformationService extends IService<ServiceOrderInformation> {
-
+    public List<OrderInformationVo> findOrderInformation(int page, int limit);
+    public int findOrderInformationCount();
 }
