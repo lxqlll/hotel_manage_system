@@ -1,5 +1,7 @@
 package com.example.hotelmanagesys.modules.admin.order.service.impl;
 
+import com.example.hotelmanagesys.modules.admin.info.entity.AdminInfo;
+import com.example.hotelmanagesys.modules.admin.info.entity.AdminPermission;
 import com.example.hotelmanagesys.modules.admin.order.entity.OrderInformationVo;
 import com.example.hotelmanagesys.modules.admin.order.entity.ServiceOrderInformation;
 import com.example.hotelmanagesys.modules.admin.order.mapper.ServiceOrderInformationMapper;
@@ -33,4 +35,10 @@ public class ServiceOrderInformationServiceImpl extends ServiceImpl<ServiceOrder
     public int findOrderInformationCount() {
         return serviceOrderInformationMapper.findOrderInformationCount();
     }
+
+    @Override
+    public List<AdminPermission> queryMevan(AdminInfo adminInfo) {
+        return serviceOrderInformationMapper.queryMevan(adminInfo);
+    }
+
 }

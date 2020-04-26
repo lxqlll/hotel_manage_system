@@ -91,8 +91,8 @@ public class InforProcessingController {
         }
     }
 
-    @PostMapping("/queryInfroMationByAll")
-    public  Result queryInfroMationByAll(@RequestBody String allInfroMation) {
-
-   }
+//    @PostMapping("/queryInfroMationByAll")
+//    public  Result queryInfroMationByAll(@RequestBody String allInfroMation) {
+//
+//   }
 }

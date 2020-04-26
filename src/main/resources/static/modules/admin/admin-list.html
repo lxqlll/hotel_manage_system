@@ -30,6 +30,7 @@
 </script>
 <script src="../../lib/commom.js"></script>
 <script src="../../layui/layui.js"></script>
+<script src="./js/xadmin.js"></script>
 <script>
     layui.use('table', function(){
         var table = layui.table;
@@ -63,7 +64,7 @@
                 ,data = checkStatus.data; //获取选中的数据
             switch(obj.event){
                 case 'add':
-                    layer.msg('添加');
+                   xadmin.open("管理员新增","admin-add.html",800,600);
                     break;
                 case 'update':
                     if(data.length === 0){

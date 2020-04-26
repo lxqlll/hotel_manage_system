@@ -156,19 +156,7 @@
                 });
 
             } else if(layEvent === 'edit'){
-                    layer.open({
-                        type: 2,
-                        area: ['700px', '500px'],
-                        content: './userinfro-update.html',
-                        btn: ['选择', '取消'],
-                        yes: function (index, layero) {
-                            $('#img').val(layero.find('iframe').contents().find("#selected_img").val());//在回调触发后找到子窗口中的input并取值
-                            layer.close(index);
-                        },
-                        btn2: function (index, layero) {
-                            layer.close(index);
-                        }
-                    });
+
             }
         });
 

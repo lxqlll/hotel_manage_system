@@ -1,6 +1,8 @@
 package com.example.hotelmanagesys.modules.admin.order.controller;
 
 
+import com.example.hotelmanagesys.modules.admin.info.entity.AdminInfo;
+import com.example.hotelmanagesys.modules.admin.info.entity.AdminPermission;
 import com.example.hotelmanagesys.modules.admin.order.entity.OrderInformationVo;
 import com.example.hotelmanagesys.modules.admin.order.entity.ServiceOrderInformation;
 import com.example.hotelmanagesys.modules.admin.order.service.IServiceOrderInformationService;
@@ -61,5 +63,20 @@ public class ServiceOrderInformationController {
         List<OrderInformationVo> list
                 = iServiceOrderInformationService.findOrderInformation(index,limit);
         return new LayuiVo(0,"",cout,list);
+    }
+    @RequestMapping("/queryMean")
+    public String queryMean(@RequestBody AdminInfo adminInfo){
+        List<AdminPermission> adminInfoList= iServiceOrderInformationService.queryMevan(adminInfo);
+        int count = adminInfoList.get(0).getCount();
+        System.out.println(count);
+        for (int i=0;i<adminInfoList.size();i++){
+            System.out.println(adminInfoList.get(i));
+        }
+        if (count!=0){
+            return "index";
+        }else{
+            return "login";
+        }
+
     }
 }

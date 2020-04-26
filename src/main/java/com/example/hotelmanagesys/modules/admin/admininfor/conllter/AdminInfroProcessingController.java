@@ -1,5 +1,6 @@
 package com.example.hotelmanagesys.modules.admin.admininfor.conllter;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.hotelmanagesys.modules.admin.info.entity.AdminInfo;
 import com.example.hotelmanagesys.modules.admin.info.service.IAdminInfoService;
@@ -26,6 +27,8 @@ import java.util.List;
 public class AdminInfroProcessingController {
     @Autowired
     private IAdminInfoService iAdminInfoService;
+
+
     @GetMapping("/processing")
     public LayuiVo queryOrderProcessing(Integer page, Integer limit){
         int count = iAdminInfoService.count();

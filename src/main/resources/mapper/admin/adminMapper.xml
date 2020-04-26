@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hotelmanagesys.modules.admin.order.mapper.ServiceOrderInformationMapper">
+
+    <!-- 权限查询方法 -->
+    <select id="queryMevan" resultType="com.example.hotelmanagesys.modules.admin.info.entity.AdminPermission" parameterType="com.example.hotelmanagesys.modules.admin.info.entity.AdminInfo">
+ 		select distinct rp.*,r.roleName,count(rp.*) as 'count' from admin_info u
+
+			join admin_role a on a.userid=u.id
+
+			join role r on a.roleId=r.roleId
+
+			join role_permission p on p.roleid=r.roleid
+
+			join admin_permission rp on p.perId = rp.perId
+
+			where u.name=#{name} and u.password=#{password}
+ 	</select>
+</mapper>
