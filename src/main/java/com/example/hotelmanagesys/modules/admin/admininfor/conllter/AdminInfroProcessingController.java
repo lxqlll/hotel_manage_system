@@ -66,12 +66,22 @@ public class AdminInfroProcessingController {
      * @return
      */
     @PostMapping("/removeAdminInfoByIds")
-    public Result removeGuestByIds(@RequestBody List<Integer> idList){
+    public Result removeAdminInfoByIds(@RequestBody List<Integer> idList){
         boolean flag = iAdminInfoService.removeByIds(idList);
         if(!flag){
             return Response.error(ResultEnum.ERROR);
         }else {
             return  Response.ok();
+        }
+    }
+
+    @PostMapping("/updateAdminInfoById")
+    public Result updateAdminInfoById(@RequestBody AdminInfo adminInfo){
+        boolean flag=iAdminInfoService.updateById(adminInfo);
+        if (flag){
+            return Response.ok();
+        }else {
+            return Response.error();
         }
     }
 }

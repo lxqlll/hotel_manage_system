@@ -54,7 +54,7 @@
                 ,{field: 'address', title: '地址', width: 200}
                 ,{field: 'question', title: '密保问题', width: 200}
                 ,{field: 'answer', title: '密保答案', width: 200}
-                ,{fixed: 'right', width: 200, align:'center', toolbar: '#barDemo'}
+                , {fixed: 'right', width: 200, align: 'center', toolbar: '#barDemo'}
             ]]
         });
 
@@ -152,7 +152,24 @@
                     //向服务端发送删除指令
                 });
             } else if(layEvent === 'edit'){
-                layer.msg('编辑操作');
+                layer.open({
+                    title: "管理员信息修改",
+                    type: 2,
+                    content: 'admin-update.html',
+                    area: ['50%', '90%'],
+                    skin: "layui-layer-molv",
+                    success: function (layero, index) {    //成功获得加载changefile.html时，预先加载，将值从父窗口传到 子窗口
+                        var body = layer.getChildFrame('body', index);  //巧妙的地方在这里哦
+                        //为子窗口元素赋值
+                        body.contents().find(".id").val(data.id);
+                        body.contents().find(".name").val(data.name);
+                        body.contents().find(".sex").val(data.sex);
+                        body.contents().find(".email").val(data.email);
+                        body.contents().find(".phone").val(data.phone);
+                        body.contents().find(".address").val(data.address);
+                        body.contents().find(".question").val(data.question);
+                    }
+                });
             }
         });
 

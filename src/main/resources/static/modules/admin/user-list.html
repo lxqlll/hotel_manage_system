@@ -156,7 +156,22 @@
                 });
 
             } else if(layEvent === 'edit'){
-
+                layer.open({
+                    title: "客户信息修改",
+                    type: 2,
+                    content: 'userinfro-update.html',
+                    area: ['50%', '90%'],
+                    skin: "layui-layer-molv",
+                    success: function (layero, index) {    //成功获得加载changefile.html时，预先加载，将值从父窗口传到 子窗口
+                        var body = layer.getChildFrame('body', index);  //巧妙的地方在这里哦
+                        //为子窗口元素赋值
+                        body.contents().find(".clientId").val(data.clientId);
+                        body.contents().find(".clientName").val(data.clientName);
+                        body.contents().find(".phone").val(data.phone);
+                        body.contents().find(".email").val(data.email);
+                        body.contents().find(".password").val(data.password);
+                    }
+                });
             }
         });
 

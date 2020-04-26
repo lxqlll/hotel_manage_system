@@ -64,7 +64,19 @@
                 , data = checkStatus.data; //获取选中的数据
             switch (obj.event) {
                 case 'add':
-                    xadmin.open("添加客房", "guest-add.html", 800, 600);
+                    layer.open({
+                        title: "添加客房",
+                        type: 2,
+                        content: 'guest-add.html',
+                        area: ['60%', '90%'],
+                        btn: ['完成']
+                        ,yes: function(){
+                            layer.closeAll();
+                        }
+                        ,end:function () {
+                            window.location.reload();
+                        }
+                    });
                     break;
                 case 'update':
                     if (data.length === 0) {
@@ -114,8 +126,7 @@
                         return false;
                     }
                     break;
-            }
-            ;
+            };
         });
 
         //监听行工具事件
@@ -154,45 +165,66 @@
                     //向服务端发送删除指令
                 });
             } else if (layEvent === 'edit') {
-                layer.msg('编辑操作');
+                layer.open({
+                    title: "客房信息修改",
+                    type: 2,
+                    content: 'guest-update.html',
+                    area: ['50%', '85%'],
+                    skin: "layui-layer-molv",
+                    success: function (layero, index) {    //成功获得加载changefile.html时，预先加载，将值从父窗口传到 子窗口
+                        var body = layer.getChildFrame('body', index);  //巧妙的地方在这里哦
+                        //为子窗口元素赋值
+                        body.contents().find(".guestRoomId").val(data.guestRoomId);
+                        body.contents().find(".guestRoomName").val(data.guestRoomName);
+                        body.contents().find(".price").val(data.price);
+                        body.contents().find(".guestRoomStatus").val(data.guestRoomStatus);
+                        body.contents().find(".guestRoomArea").val(data.guestRoomArea);
+                        body.contents().find(".breakfast").val(data.breakfast);
+                        body.contents().find(".population").val(data.population);
+                        body.contents().find(".bedType").val(data.bedType);
+                        //通过class名进行获取数据
+                        // body.find(".filepath").val(rowselect[0].path);//意思是将rowselect[0].path这个值传递到子窗口的class="filepath"这个的文本框中，（预先加载）
+                        // layui.form.render();
+                    }
+                });
             }
         });
-        $('#use').click(function () {
-            var tableIns = table.render({
-                elem: '#demo'
-                , height: 600
-                , url: baseURL+'/admin/guest/queryGuestByAll?queryValue=6' //数据接口
-                , title: '用户表'
-                , page: true //开启分页
-                , toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
-                , totalRow: true //开启合计行
-                , method:'POST'
-                , cols: [[ //表头
-                    {type: 'checkbox', fixed: 'left'},
-                    {field: 'guestRoomId', title: '客房信息编号', width: 150, sort: true, fixed: 'left'}
-                    , {field: 'guestRoomName', title: '客房名字', width: 150}
-                    , {field: 'price', title: '客房价格(￥)', width: 150}
-                    , {field: 'guestRoomStatus', title: '客房状况', width: 200}
-                    , {field: 'guestRoomArea', title: '客房面积(㎡)', width: 200}
-                    , {field: 'breakfast', title: '是否含有早餐', width: 200}
-                    , {field: 'population', title: '可住人数', width: 200}
-                    , {field: 'bedType', title: '床型', width: 200}
-                    , {field: 'guestRoomPicture', title: '客房照片', width: 200}
-                    , {fixed: 'right', width: 200, align: 'center', toolbar: '#barDemo'}
-                ]]
-            });
-            tableIns.reload({
-                page: {
-                    curr: 1 //重新从第 1 页开始
-                }
-                , method:'POST'
-                ,url: baseURL+'/admin/guest/queryGuestByAll?queryValue=8'
-                ,contentType: 'application/json'
-                ,done: function(res, curr, count){
-                }
-            });
-        });
 
+        // $('#use').click(function () {
+        //     var tableIns = table.render({
+        //         elem: '#demo'
+        //         , height: 600
+        //         , url: baseURL+'/admin/guest/queryGuestByAll?queryValue=6' //数据接口
+        //         , title: '用户表'
+        //         , page: true //开启分页
+        //         , toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
+        //         , totalRow: true //开启合计行
+        //         , method:'POST'
+        //         , cols: [[ //表头
+        //             {type: 'checkbox', fixed: 'left'},
+        //             {field: 'guestRoomId', title: '客房信息编号', width: 150, sort: true, fixed: 'left'}
+        //             , {field: 'guestRoomName', title: '客房名字', width: 150}
+        //             , {field: 'price', title: '客房价格(￥)', width: 150}
+        //             , {field: 'guestRoomStatus', title: '客房状况', width: 200}
+        //             , {field: 'guestRoomArea', title: '客房面积(㎡)', width: 200}
+        //             , {field: 'breakfast', title: '是否含有早餐', width: 200}
+        //             , {field: 'population', title: '可住人数', width: 200}
+        //             , {field: 'bedType', title: '床型', width: 200}
+        //             , {field: 'guestRoomPicture', title: '客房照片', width: 200}
+        //             , {fixed: 'right', width: 200, align: 'center', toolbar: '#barDemo'}
+        //         ]]
+        //     });
+        //     tableIns.reload({
+        //         page: {
+        //             curr: 1 //重新从第 1 页开始
+        //         }
+        //         , method:'POST'
+        //         ,url: baseURL+'/admin/guest/queryGuestByAll?queryValue=8'
+        //         ,contentType: 'application/json'
+        //         ,done: function(res, curr, count){
+        //         }
+        //     });
+        // });
      });
     });
 </script>

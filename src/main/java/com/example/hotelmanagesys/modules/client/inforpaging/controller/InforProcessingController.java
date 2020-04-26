@@ -1,6 +1,7 @@
 package com.example.hotelmanagesys.modules.client.inforpaging.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.hotelmanagesys.modules.admin.info.entity.AdminInfo;
 import com.example.hotelmanagesys.modules.client.infor.entity.InforMation;
 import com.example.hotelmanagesys.modules.client.infor.service.IInforMationService;
 import com.example.hotelmanagesys.result.LayuiVo;
@@ -90,7 +91,15 @@ public class InforProcessingController {
             return  Response.ok();
         }
     }
-
+    @PostMapping("/updateInfoById")
+    public Result updateInfoById(@RequestBody  InforMation inforMation){
+        boolean flag=iInforMationService.updateById(inforMation);
+        if (flag){
+            return Response.ok();
+        }else {
+            return Response.error();
+        }
+    }
 //    @PostMapping("/queryInfroMationByAll")
 //    public  Result queryInfroMationByAll(@RequestBody String allInfroMation) {
 //

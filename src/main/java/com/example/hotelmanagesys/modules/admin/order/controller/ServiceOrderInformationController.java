@@ -1,8 +1,6 @@
 package com.example.hotelmanagesys.modules.admin.order.controller;
 
-
 import com.example.hotelmanagesys.modules.admin.info.entity.AdminInfo;
-import com.example.hotelmanagesys.modules.admin.info.entity.AdminPermission;
 import com.example.hotelmanagesys.modules.admin.order.entity.OrderInformationVo;
 import com.example.hotelmanagesys.modules.admin.order.entity.ServiceOrderInformation;
 import com.example.hotelmanagesys.modules.admin.order.service.IServiceOrderInformationService;
@@ -12,9 +10,10 @@ import com.example.hotelmanagesys.result.LayuiVo;
 import com.example.hotelmanagesys.result.Response;
 import com.example.hotelmanagesys.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -25,7 +24,7 @@ import java.util.List;
  * @author lxq
  * @since 2020-04-19
  */
-@RestController
+@Controller
 @RequestMapping(value = "/order/information")
 public class ServiceOrderInformationController {
 
@@ -64,19 +63,9 @@ public class ServiceOrderInformationController {
                 = iServiceOrderInformationService.findOrderInformation(index,limit);
         return new LayuiVo(0,"",cout,list);
     }
-    @RequestMapping("/queryMean")
-    public String queryMean(@RequestBody AdminInfo adminInfo){
-        List<AdminPermission> adminInfoList= iServiceOrderInformationService.queryMevan(adminInfo);
-        int count = adminInfoList.get(0).getCount();
-        System.out.println(count);
-        for (int i=0;i<adminInfoList.size();i++){
-            System.out.println(adminInfoList.get(i));
-        }
-        if (count!=0){
-            return "index";
-        }else{
-            return "login";
-        }
-
+   @PostMapping("/queryMeanTwo")
+    public ModelAndView queryMean(@RequestBody AdminInfo adminInfo){
+         ModelAndView mv = new ModelAndView("index");
+         return mv;
     }
 }

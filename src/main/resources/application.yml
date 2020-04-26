@@ -10,10 +10,6 @@ spring:
     url: jdbc:mysql://localhost:3306/hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: 123
-  mvc:
-    view:
-      prefix: modules/admin/
-      suffix: .html
 #mybatis plus配置
 mybatis-plus:
   mapper-locations: classpath:/mapper/*/*.xml #mapper位置
