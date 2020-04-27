@@ -31,4 +31,17 @@ public class InforPastOrderController {
         List<InforPastOrder> inforPastOrderList = inforPastOrderService.list(wrapper);
         return Response.ok("成功了");
     }
+
+    /**
+     *根据用户编号查询预订订单
+     * @param inforPastOrder
+     * @return
+     */
+    @PostMapping("/queryInforReserve")
+    private Result queryInforReserve(@RequestBody InforPastOrder inforPastOrder){
+        QueryWrapper wrapper = new QueryWrapper<>();
+        wrapper.eq("inforId",inforPastOrder.getInforId());
+        List<InforPastOrder> inforPastOrderList = inforPastOrderService.list(wrapper);
+        return Response.ok("成功了");
+    }
 }

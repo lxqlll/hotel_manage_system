@@ -8,8 +8,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class InforPastOrder {
+
     @TableId(value = "orderInformationId", type = IdType.AUTO)
     private Integer roomReservationId;
+
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date checkOutDate;
 
@@ -20,6 +22,9 @@ public class InforPastOrder {
     private Integer state;
 
     private Integer inforId;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date targetDate;
 
     public Integer getRoomReservationId() {
         return roomReservationId;
@@ -67,5 +72,13 @@ public class InforPastOrder {
 
     public void setInforId(Integer inforId) {
         this.inforId = inforId;
+    }
+
+    public Date getTargetDate() {
+        return targetDate;
+    }
+
+    public void setTargetDate(Date targetDate) {
+        this.targetDate = targetDate;
     }
 }

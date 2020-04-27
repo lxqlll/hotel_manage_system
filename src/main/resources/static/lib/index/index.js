@@ -1,5 +1,6 @@
 
 var guestRoomName = $.cookie('userName');
+
 if (guestRoomName!=null){
     alert(1)
     $('#personalCenter').append("<li><a href=\"front/personal.html\" id='myCenter' class=\"active\">个人中心</a></li>")
