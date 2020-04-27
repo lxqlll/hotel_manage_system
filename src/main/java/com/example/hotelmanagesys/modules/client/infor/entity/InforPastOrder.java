@@ -3,13 +3,13 @@ package com.example.hotelmanagesys.modules.client.infor.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
-
+@TableName("infor_past_order")
 public class InforPastOrder {
 
-    @TableId(value = "orderInformationId", type = IdType.AUTO)
     private Integer roomReservationId;
 
     @JsonFormat(pattern = "yyyy-MM-dd")

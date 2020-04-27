@@ -18,7 +18,9 @@ $('#clientLogin').click(function () {
                     //添加cookie
                      document.cookie = "phone=" + unescape(obj.data.phone) + ";expires=" + exp.toGMTString()+";Path="+escape("/");
                      document.cookie = "userName=" + unescape(obj.data.clientName) + ";expires=" + exp.toGMTString()+";Path="+escape("/");
-                    window.location.href=baseWebURL+"/modules/index.html";
+                     document.cookie = "clientId=" + unescape(obj.data.clientId) + ";expires=" + exp.toGMTString()+";Path="+escape("/");
+                     document.cookie = "email=" + unescape(obj.data.email) + ";expires=" + exp.toGMTString()+";Path="+escape("/");
+                     window.location.href=baseWebURL+"/modules/index.html";
                 }else{
                     alert("账号或者密码,请重新登录!");
                 }

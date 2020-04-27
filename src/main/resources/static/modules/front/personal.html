@@ -66,6 +66,17 @@
         border-collapse: separate;
         border-spacing: 104px 20px;
     }
+    #nameOne{
+        height: 20px;
+        width:40px;
+        font-size: 20px;
+        color: #0C0C0C;
+    }
+    #nameTwo{
+        position:relative;
+        top:-16px;
+        left:80px;
+    }
 </style>
 <body>
 <!-- main banner -->
@@ -141,7 +152,8 @@
                 <div class="port">
                     <div class="port-name">
                         <div class="port-name-user">
-                            曾建波啊&nbsp;&nbsp;用户
+                            <div id="nameOne"></div>
+                            <div id="nameTwo">用户</div>
                         </div>
                         <div class="port-name-login">
                             <a href=""><u>退出登录</u></a>
@@ -150,8 +162,8 @@
                     <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                         <ul class="layui-tab-title">
                             <li class="layui-this">个人信息</li>
-                            <li>往期订单</li>
-                            <li>预定订单</li>
+                            <li onclick="dmo()" id="orderPast">往期订单</li>
+                            <li id="orderReserve">预定订单</li>
                         </ul>
                         <div class="layui-tab-content">
                             <div class="layui-tab-item layui-show">
@@ -163,12 +175,12 @@
                                             <li>
                                                 <label class=\"fieldset-email\">邮箱*</label>
                                                 <div class=\"box\">
-                                                    <input id="emailType" type=\"text\" value="" name=\"\">
+                                                    <input id="emailType1" value="" type="text" name=\"\">
                                                 </div>
                                             <li>
                                                 <label class=\"fieldset-email2\">电话*</label>
                                                 <div class=\"box2\">
-                                                    <input id="phoneType" readonly=\"readonly\" class=\"fieldset-phone\" type=\"text\" value="" name=\"\" />
+                                                    <input id="phoneType" readonly=\"readonly\" value="" class=\"fieldset-phone\" type="text" name=\"\" />
                                                 </div>
                                             </li>
                                             <li>
@@ -188,24 +200,9 @@
                                 </div>
                             </div>
                             <div class="layui-tab-item">
-                                <div class="previous">
+                                <div id="orderRow" class="previous">
                                     <div class="items">我的订单</div>
-                                    <table class="previous-price">
-                                        <tr>
-                                            <th>订单编号</th>
-                                            <th>结算日期</th>
-                                            <th>住房名字</th>
-                                            <th>订单状态</th>
-                                            <th>结算金额</th>
-                                        </tr>
-                                        <tr>
-                                            <td>210578463</td>
-                                            <td>2022-04-18</td>
-                                            <td>豪华房101</td>
-                                            <td>已结算</td>
-                                            <td>488￥</td>
-                                        </tr>
-                                    </table>
+
                                 </div>
                             </div>
                             <div class="layui-tab-item">

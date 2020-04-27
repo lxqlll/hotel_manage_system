@@ -1,8 +1,9 @@
 
 var guestRoomName = $.cookie('userName');
-
+var email1 = $.cookie('email');
 if (guestRoomName!=null){
-    alert(1)
+    alert(1);
+    alert(email1);
     $('#personalCenter').append("<li><a href=\"front/personal.html\" id='myCenter' class=\"active\">个人中心</a></li>")
     $('#personalCenter').append("<li><a id='outIn'  class=\"active\">退出登录</a></li>")
 }else{

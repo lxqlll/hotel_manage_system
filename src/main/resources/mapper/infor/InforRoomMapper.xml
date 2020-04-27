@@ -5,13 +5,13 @@
       select * from client_infor_mation a
        LEFT JOIN client_room_reservation b
        on a.clientId = b.inforId
-       where a.clientId = #{clientId} and b.state = 1
+       where a.clientId = #{inforId} and b.state = 1
    </select>
     <select id="queryInforReserve" parameterType="int"  resultType="com.example.hotelmanagesys.modules.client.infor.entity.InforPastOrder">
       select * from client_infor_mation a
        LEFT JOIN client_room_reservation b
        on a.clientId = b.inforId,
-       where a.clientId = #{clientId} and b.state = 0
+       where a.clientId = #{inforId} and b.state = 0
    </select>
 
 </mapper>

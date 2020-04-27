@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/infor")
 public class InforPastOrderController {
+    
     @Autowired
     private InforPastOrderService inforPastOrderService;
 
