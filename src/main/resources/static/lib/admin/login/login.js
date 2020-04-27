@@ -19,6 +19,7 @@ $('#login').click(function () {
                     // document.cookie = "phone=" + escape(obj.data.phone) + ";expires=" + exp.toGMTString();
                     // document.cookie = "userName=" + escape(obj.data.clientName) + ";expires=" + exp.toGMTString();
                     // window.location.href=baseWebURL+"/modules/front/index.html";
+                    window.location.href=baseURL +"/order/information/queryMeanTwo";
                 }else{
                     alert("账号或者密码,请重新登录!");
                 }
