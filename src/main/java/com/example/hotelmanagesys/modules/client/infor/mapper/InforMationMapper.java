@@ -20,5 +20,5 @@ import java.util.List;
 @Mapper
 @Repository
 public interface InforMationMapper extends BaseMapper<InforMation> {
-    public List<InforMation> selectUserNameRoom();
+
 }
